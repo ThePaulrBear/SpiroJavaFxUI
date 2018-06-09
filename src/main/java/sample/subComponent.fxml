@@ -5,8 +5,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import java.lang.Double?>
+<?import org.controlsfx.control.PropertySheet ?>
 <Label GridPane.columnIndex="0" GridPane.rowIndex="6"  xmlns:fx="http://javafx.com/fxml/1">
 
     <text><Double fx:constant="MAX_EXPONENT"/></text>
     <properties foo="Hello"/>
+
+    <!--<PropertySheet/>-->
 </Label>
