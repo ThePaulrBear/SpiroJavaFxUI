@@ -1,9 +1,8 @@
 package paul.wintz.parametricequationdrawer.controllers.javafx;
 
 import javafx.fxml.FXML;
-import javafx.scene.paint.Color;
 import paul.wintz.javafx.widgets.*;
-import paul.wintz.parametricequationdrawer.controllers.paul.wintz.parametricequationdrawer.controllers.canvas.CanvasControllerPresenter;
+import paul.wintz.parametricequationdrawer.controllers.CanvasControlsPresenter;
 import paul.wintz.uioptiontypes.BooleanOption;
 import paul.wintz.uioptiontypes.ColorOption;
 import paul.wintz.uioptiontypes.FloatOption;
@@ -11,8 +10,8 @@ import paul.wintz.uioptiontypes.events.EventOption;
 import paul.wintz.uioptiontypes.integers.IntegerOption;
 import paul.wintz.utils.logging.Lg;
 
-public class FXMLCanvasControlsView implements CanvasControllerPresenter.View {
-    private static final String TAG = Lg.makeTAG(FXMLCanvasControlsView.class);
+public class CanvasControlsView implements CanvasControlsPresenter.View {
+    private static final String TAG = Lg.makeTAG(CanvasControlsView.class);
 
     @FXML IntegerSpinner size;
     @FXML FloatSlider centerX;
@@ -35,8 +34,8 @@ public class FXMLCanvasControlsView implements CanvasControllerPresenter.View {
         this.centerY.setOption(centerY);
     }
 
-    @Override public void setRotationOption(IntegerOption indexOption) {
-        this.rotationIndex.setOption(indexOption);
+    @Override public void setRotationOption(IntegerOption rotationOption) {
+        this.rotationIndex.setOption(rotationOption);
     }
 
     @Override public void setBackgroundColorOption(ColorOption backgroundOption) {
@@ -75,18 +74,28 @@ public class FXMLCanvasControlsView implements CanvasControllerPresenter.View {
 
     @Override
     public void setRotation(int index) {
-        Lg.v(TAG, "setRotation(%.2f)", index);
+        Lg.v(TAG, "setRotation(%d)", index);
         rotationIndex.setValue(index);
     }
 
     @Override
+    public void setBackground(int rgba) {
+        background.setValue(rgba);
+    }
+
+    @Override
     public void setBackground(int red, int green, int blue, int alpha) {
-        background.setValue(Color.rgb(red, green, blue, alpha));
+        background.setValue(red, green, blue, alpha);
     }
 
     @Override
     public void setPreserveGraph(boolean preserveGraph) {
         this.preserveGraph.setValue(preserveGraph);
+    }
+
+    @Override
+    public boolean getPreserveGraph() {
+        return preserveGraph.getValue();
     }
 
 }

@@ -10,9 +10,8 @@ public class FloatSlider extends Slider {
         setBlockIncrement(option.increment);
         setMin(option.min);
         setMax(option.max);
-        valueProperty().addListener((observable, oldValue, newValue) -> {
-            option.viewValueChangeCallback.callback(newValue.floatValue());
-        });
+        valueProperty().addListener((observable, oldValue, newValue) -> option.emitViewValueChanged(newValue.floatValue()));
+
     }
 
 }

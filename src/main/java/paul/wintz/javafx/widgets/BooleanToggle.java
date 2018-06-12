@@ -9,13 +9,16 @@ import paul.wintz.utils.logging.Lg;
 public class BooleanToggle extends ToggleSwitch {
 
     public void setOption(BooleanOption option){
-        Lg.v("BooleanToggle", "setOption: " + option);
         setSelected(option.initial);
-        selectedProperty().addListener((observable, oldValue, newValue) -> option.viewValueChangeCallback.callback(isSelected()));
+        selectedProperty().addListener((observable, oldValue, newValue) -> option.emitViewValueChanged(newValue));
     }
 
     public void setValue(boolean value) {
         setSelected(value);
+    }
+
+    public boolean getValue() {
+        return isSelected();
     }
 
 }

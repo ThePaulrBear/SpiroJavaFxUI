@@ -11,12 +11,11 @@ public class IntegerSpinner extends Spinner<Integer> {
     private SpinnerValueFactory.IntegerSpinnerValueFactory valueFactory;
 
     public void setOption(IntegerOption option) {
+        valueProperty().addListener((observable, oldValue, newValue) -> option.emitViewValueChanged(getValue()));
         valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(option.min, option.max);
         valueFactory.setAmountToStepBy(option.increment);
+        valueFactory.setValue(option.initial);
         setValueFactory(valueFactory);
-
-        valueProperty().addListener((observable, oldValue, newValue)
-                -> option.viewValueChangeCallback.callback(getValue()));
     }
 
     public void setValue(int value) {
