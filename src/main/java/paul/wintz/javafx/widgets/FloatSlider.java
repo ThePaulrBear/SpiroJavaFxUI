@@ -1,7 +1,7 @@
 package paul.wintz.javafx.widgets;
 
 import javafx.scene.control.Slider;
-import paul.wintz.uioptiontypes.FloatOption;
+import paul.wintz.uioptiontypes.values.FloatOption;
 
 public class FloatSlider extends Slider {
 

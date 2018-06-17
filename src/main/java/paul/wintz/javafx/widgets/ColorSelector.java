@@ -2,7 +2,7 @@ package paul.wintz.javafx.widgets;
 
 import javafx.scene.control.ColorPicker;
 import javafx.scene.paint.Color;
-import paul.wintz.uioptiontypes.ColorOption;
+import paul.wintz.uioptiontypes.values.ColorOption;
 import paul.wintz.utils.color.ColorUtils;
 
 import static paul.wintz.utils.color.ColorUtils.*;

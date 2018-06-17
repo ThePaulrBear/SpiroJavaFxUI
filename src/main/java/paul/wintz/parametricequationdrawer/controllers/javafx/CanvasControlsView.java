@@ -3,11 +3,11 @@ package paul.wintz.parametricequationdrawer.controllers.javafx;
 import javafx.fxml.FXML;
 import paul.wintz.javafx.widgets.*;
 import paul.wintz.parametricequationdrawer.controllers.CanvasControlsPresenter;
-import paul.wintz.uioptiontypes.BooleanOption;
-import paul.wintz.uioptiontypes.ColorOption;
-import paul.wintz.uioptiontypes.FloatOption;
+import paul.wintz.uioptiontypes.values.BooleanOption;
+import paul.wintz.uioptiontypes.values.ColorOption;
+import paul.wintz.uioptiontypes.values.FloatOption;
 import paul.wintz.uioptiontypes.events.EventOption;
-import paul.wintz.uioptiontypes.integers.IntegerOption;
+import paul.wintz.uioptiontypes.values.IntegerOption;
 import paul.wintz.utils.logging.Lg;
 
 public class CanvasControlsView implements CanvasControlsPresenter.View {

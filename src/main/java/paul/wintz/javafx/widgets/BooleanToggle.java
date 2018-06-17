@@ -1,10 +1,7 @@
 package paul.wintz.javafx.widgets;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import org.controlsfx.control.ToggleSwitch;
-import paul.wintz.uioptiontypes.BooleanOption;
-import paul.wintz.utils.logging.Lg;
+import paul.wintz.uioptiontypes.values.BooleanOption;
 
 public class BooleanToggle extends ToggleSwitch {
 

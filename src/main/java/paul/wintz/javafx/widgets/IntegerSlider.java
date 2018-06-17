@@ -1,7 +1,7 @@
 package paul.wintz.javafx.widgets;
 
 import javafx.scene.control.Slider;
-import paul.wintz.uioptiontypes.integers.IntegerOption;
+import paul.wintz.uioptiontypes.values.IntegerOption;
 
 public class IntegerSlider extends Slider {
 

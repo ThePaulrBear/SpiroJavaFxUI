@@ -8,58 +8,37 @@ import javafx.stage.Stage;
 import paul.wintz.parametricequationdrawer.SpiroUserInterface;
 import paul.wintz.parametricequationdrawer.controllers.AnimationControlsPresenter;
 import paul.wintz.parametricequationdrawer.controllers.CanvasControlsPresenter;
-import paul.wintz.parametricequationdrawer.controllers.DrawerController;
-import paul.wintz.uioptiontypes.FileOption;
-import paul.wintz.uioptiontypes.events.EventOption;
+import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.SpirotechnicControlsPresenter;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
-import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
-import static paul.wintz.utils.logging.Lg.makeTAG;
 
+//TODO: Rename to FXViews
 public class SpiroOptionsJavaFX extends Stage implements SpiroUserInterface {
-    private static final String TAG = makeTAG(SpiroOptionsJavaFX.class);
 
     private final CanvasControlsPresenter.View canvasControls;
     private final AnimationControlsPresenter.View animationControls;
     private final AnimationControlsPresenter.SavingControlsView saveControls;
+    private final SpirotechnicControlsPresenter.View spirotechnicControlsView;
 
     public SpiroOptionsJavaFX() throws IOException {
-        FXMLLoader canvasLoader = new FXMLLoader();
-        FXMLLoader animationLoader = new FXMLLoader();
         FXMLLoader rootLoader = new FXMLLoader();
 
-        URL canvasViewUrl = getClass().getResource("/canvasControlsView.fxml");
-        canvasLoader.setLocation(canvasViewUrl);
-
-        URL animationViewUrl = getClass().getResource("/animationControlsView.fxml");
-        animationLoader.setLocation(animationViewUrl);
-
-        URL rootUrl = getClass().getResource("/spiroRoot.fxml");
-        rootLoader.setLocation(rootUrl);
+        rootLoader.setLocation(getClass().getResource("/controlsRoot.fxml"));
 
         Parent root = rootLoader.load();
         StackPane pane = new StackPane();
         pane.getChildren().setAll(root);
         setScene(new Scene(pane));
 
-        animationLoader.load();
-
-        SpiroRoot spiroRoot = checkNotNull(rootLoader.<SpiroRoot>getController());
-
-        canvasControls = spiroRoot.getCanvasControlsView();
-        animationControls = spiroRoot.getAnimationControlsViewController();
-        saveControls = spiroRoot.getSavingControlsViewController();
+        ControlsRoot controlsRoot = checkNotNull(rootLoader.getController());
+        canvasControls = controlsRoot.getCanvasController();
+        animationControls = controlsRoot.getAnimationController();
+        saveControls = controlsRoot.getSavingView();
+        spirotechnicControlsView = controlsRoot.getSpirotechnicControlsView();
 
         show();
-    }
-
-    @Override
-    public DrawerController getDrawerControllerPresenter() {
-        return null;
     }
 
     @Override
@@ -76,4 +55,10 @@ public class SpiroOptionsJavaFX extends Stage implements SpiroUserInterface {
     public AnimationControlsPresenter.SavingControlsView getSavingView() {
         return saveControls;
     }
+
+    @Override
+    public SpirotechnicControlsPresenter.View getSpirotechnicControlsView() {
+        return spirotechnicControlsView;
+    }
+
 }

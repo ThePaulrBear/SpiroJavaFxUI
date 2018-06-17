@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.VBox?>
 <TabPane xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.SpiroRoot"
+      fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.ControlsRoot"
       prefHeight="400.0" prefWidth="600.0">
 
     <fx:include fx:id="canvasControlsView" source="canvasControlsView.fxml"/>
-
     <fx:include fx:id="animationControlsView" source="animationControlsView.fxml"/>
+    <fx:include fx:id="spirotechnicControlsView" source="spirotechnicControlsView.fxml"/>
 
 </TabPane>

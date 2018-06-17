@@ -1,10 +1,8 @@
 package paul.wintz.javafx.widgets;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import paul.wintz.uioptiontypes.integers.IntegerOption;
+import paul.wintz.uioptiontypes.values.IntegerOption;
 
 public class IntegerSpinner extends Spinner<Integer> {
 

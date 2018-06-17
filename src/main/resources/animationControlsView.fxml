@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import paul.wintz.javafx.widgets.BooleanToggle?>
-<?import paul.wintz.javafx.widgets.FloatSlider?>
-<?import paul.wintz.javafx.widgets.IntegerSpinner?>
-
-<?import javafx.scene.control.Tab?>
-<?import paul.wintz.javafx.widgets.DirectorySelector?>
-<?import paul.wintz.javafx.widgets.EventButton?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import paul.wintz.javafx.widgets.*?>
 <Tab
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
@@ -37,10 +29,9 @@
         <FloatSlider fx:id="fps" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
         <Label text="Save Directory" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-        <DirectorySelector fx:id="saveDirectorySelector" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <DirectorySelector fx:id="saveDirectorySelector" text="Select" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
-        <Label text="Save" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-        <EventButton fx:id="save" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <EventButton fx:id="save" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
     </GridPane>
 </Tab>

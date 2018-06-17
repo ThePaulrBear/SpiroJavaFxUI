@@ -4,7 +4,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Window;
-import paul.wintz.uioptiontypes.FileOption;
+import paul.wintz.uioptiontypes.values.FileOption;
 
 import java.io.File;
 
