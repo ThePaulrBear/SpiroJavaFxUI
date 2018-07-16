@@ -24,7 +24,6 @@ public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.V
     @FXML private EventButton nextGraph;
     @FXML private VBox circlesColumn;
 
-
     @Override
     public void setCircleCountOption(IntegerOption circleCountOption) {
         circleCount.setOption(circleCountOption);

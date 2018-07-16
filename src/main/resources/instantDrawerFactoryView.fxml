@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.*?>
+<?import paul.wintz.javafx.widgets.ListSelector?>
+<?import paul.wintz.javafx.widgets.LoaderView?>
+<Tab
+        xmlns:fx="http://javafx.com/fxml/1"
+        xmlns="http://javafx.com/javafx/8.0.121"
+        text="Instant Drawer Controller"
+        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.InstantDrawerPresenterSelectionView">
+
+    <HBox minWidth="300" minHeight="300"
+            alignment="center">
+
+        <padding>
+            <Insets bottom="25" left="25" right="25" top="25"/>
+        </padding>
+
+        <ListSelector fx:id="listOfPresenters" />
+
+        <LoaderView fx:id="loaderView" />
+
+
+    </HBox>
+</Tab>
