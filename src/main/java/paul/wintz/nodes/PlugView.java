@@ -1,28 +1,30 @@
 package paul.wintz.nodes;
 
+import javafx.beans.binding.Bindings;
+import javafx.geometry.Point2D;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import paul.wintz.utils.logging.Lg;
 
 import java.util.Set;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 class PlugView {
 
     private static final String TAG = Lg.makeTAG(PlugView.class);
-    private final Circle plugEnd;
-    private final PositionProperty connectionPoint;
+    private final Circle plugEndCircle;
+    private Point2D connectionPoint;
     private final Set<Circle> dropReceivers;
 
-    public PlugView(PositionProperty connectionPoint, NodesCanvasView nodesCanvasView) {
-        this.dropReceivers = nodesCanvasView.getDropReceivers();
-        plugEnd = new Circle(10, Color.BLACK);
+    public PlugView(Point2D connectionPoint, Pane parent, Set<Circle> dropReceivers) {
+        this.connectionPoint = connectionPoint;
+        this.dropReceivers = dropReceivers;
+        plugEndCircle = new Circle(10, Color.BLACK);
 
-        FXUtils.setUpDragging(plugEnd, new CircleDraggable(), event -> {
+        FXUtils.setUpDragging(plugEndCircle, new CircleDraggable(), event -> {
             Lg.v(TAG, "%s dragDropped", this);
-            for(Circle circle : dropReceivers) {
-                if(FXUtils.doCirclesIntersect(plugEnd, circle)) {
+            for(Circle circle : this.dropReceivers) {
+                if(FXUtils.doCirclesIntersect(plugEndCircle, circle)) {
                     bindToCircle(circle);
                     return;
                 }
@@ -30,57 +32,64 @@ class PlugView {
             bindEndToLeftOfCordConnection();
         });
 
-        plugEnd.setOnDragEntered(event -> Lg.d(TAG, "onDragEntered"));
-        plugEnd.setOnDragOver(event -> Lg.d(TAG, "onDragOver"));
-        plugEnd.setOnMouseDragOver(event -> Lg.d(TAG, "onMouseDragOver"));
-
-        this.connectionPoint = connectionPoint;
         bindEndToLeftOfCordConnection();
 
-        nodesCanvasView.add(plugEnd);
+        parent.getChildren().add(plugEndCircle);
 
         final FlowCurve cordCurve = new FlowCurve(
-                plugEnd.centerXProperty(),
-                plugEnd.centerYProperty(),
-                connectionPoint.x(),
-                connectionPoint.y());
-        nodesCanvasView.add(cordCurve);
+                connectionPoint.getX(),
+                connectionPoint.getY(),
+                plugEndCircle.centerXProperty(),
+                plugEndCircle.centerYProperty());
+        parent.getChildren().add(cordCurve);
 
     }
 
     public void bindEndToLeftOfCordConnection() {
-        plugEnd.centerXProperty().bind(this.connectionPoint.x().add(-20));
-        plugEnd.centerYProperty().bind(this.connectionPoint.y());
+        plugEndCircle.setCenterX(this.connectionPoint.getX() - 20);
+        plugEndCircle.setCenterY(this.connectionPoint.getY());
     }
 
     public void bindToCircle(Circle circle) {
         Lg.i(TAG, "Binding " + circle + " to " + this);
 
-        plugEnd.centerXProperty().bind(circle.centerXProperty());
-        plugEnd.centerYProperty().bind(circle.centerYProperty());
+        circle.localToSceneTransformProperty().addListener(observable -> Lg.v(TAG, "localToSceneTransformProperty changed"));
+
+        plugEndCircle.centerXProperty().bind(
+                Bindings.createDoubleBinding(
+                        () -> positionInLocal(circle).getX(),
+                        circle.getParent().translateXProperty(), plugEndCircle.getParent().translateXProperty()));
+        plugEndCircle.centerYProperty().bind(
+                Bindings.createDoubleBinding(
+                        () -> positionInLocal(circle).getY(),
+                        circle.getParent().translateYProperty(), plugEndCircle.getParent().translateYProperty()));
+    }
+
+    private Point2D positionInLocal(Circle circle) {
+        return plugEndCircle.sceneToLocal(circle.localToScene(circle.getCenterX(), circle.getCenterY()));
     }
 
     private class CircleDraggable implements FXUtils.DraggableWrapper {
         @Override
         public double getX() {
-            return plugEnd.getCenterX();
+            return plugEndCircle.getCenterX();
         }
 
         @Override
         public double getY() {
-            return plugEnd.getCenterY();
+            return plugEndCircle.getCenterY();
         }
 
         @Override
         public void setX(double newX) {
-            plugEnd.centerXProperty().unbind();
-            plugEnd.centerXProperty().setValue(newX);
+            plugEndCircle.centerXProperty().unbind();
+            plugEndCircle.setCenterX(newX);
         }
 
         @Override
         public void setY(double newY) {
-            plugEnd.centerYProperty().unbind();
-            plugEnd.centerYProperty().setValue(newY);
+            plugEndCircle.centerYProperty().unbind();
+            plugEndCircle.setCenterY(newY);
         }
     }
 }

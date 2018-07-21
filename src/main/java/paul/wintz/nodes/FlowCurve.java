@@ -6,16 +6,12 @@ import javafx.scene.shape.CubicCurve;
 
 class FlowCurve extends CubicCurve {
 
-    FlowCurve(PositionProperty start, PositionProperty end) {
-        this(start.x(), start.y(), end.x(), end.y());
-    }
-
-    FlowCurve(ObservableValue<Number> startX, ObservableValue<Number> startY, ObservableValue<Number> endX, ObservableValue<Number> endY) {
+    FlowCurve(double startX, double startY, ObservableValue<Number> endX, ObservableValue<Number> endY) {
         setStroke(Color.BLACK);
         setStrokeWidth(2);
         setFill(null);
 
-        bindStart(startX, startY);
+        setStart(startX, startY);
         bindEnd(endX, endY);
 
         double other = 0.5;
@@ -30,9 +26,9 @@ class FlowCurve extends CubicCurve {
         endYProperty().bind(endY);
     }
 
-    public void bindStart(ObservableValue<Number> startX, ObservableValue<Number> startY) {
-        startXProperty().bind(startX);
-        startYProperty().bind(startY);
+    public void setStart(double startX, double startY) {
+        setStartX(startX);
+        setStartY(startY);
     }
 
 }

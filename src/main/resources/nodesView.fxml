@@ -12,8 +12,10 @@
 
     <Pane fx:id="pane">
         <HBox>
-            <Button text="Add Node" fx:id="addNode" onMouseClicked="#createTestNode"/>
+            <Button text="Add Node" onMouseClicked="#createAdderNode"/>
+            <Button text="Add Leaf" onMouseClicked="#createLeaf"/>
         </HBox>
     </Pane>
+
 
 </Tab>

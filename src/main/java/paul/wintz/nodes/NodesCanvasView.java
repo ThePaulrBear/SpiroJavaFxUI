@@ -1,11 +1,17 @@
 package paul.wintz.nodes;
 
-import javafx.beans.binding.DoubleExpression;
 import javafx.fxml.FXML;
+import javafx.geometry.Point2D;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeType;
+import org.w3c.dom.css.Rect;
 import paul.wintz.doublesourcehierarchy.BinaryOperatorNode;
+import paul.wintz.doublesourcehierarchy.Leaf;
 import paul.wintz.doublesourcehierarchy.Node;
 import paul.wintz.doublesourcehierarchy.presenter.INodesPresenter;
 import paul.wintz.doublesourcehierarchy.presenter.NodesPresenter;
@@ -26,50 +32,22 @@ public class NodesCanvasView implements NodesPresenter.View {
 
     private Set<Circle> dropReceivers = new HashSet<>();
 
-    public void initialize() {
-
-//        final Circle circle = new Circle(10, Color.RED);
-//        pane.getChildren().add(circle);
-//        pane.setOnMouseMoved(event -> {
-//            circle.setCenterX(event.getX());
-//            circle.setCenterY(event.getY());
-//        });
-
-
-        pane.setOnDragDetected(event -> Lg.d(TAG, "onDragDetected"));
-        pane.setOnDragEntered(event -> Lg.d(TAG, "onDragEntered"));
-        pane.setOnDragDropped(event -> Lg.d(TAG, "onDragDropped"));
-        pane.setOnDragOver(event -> Lg.d(TAG, "onDragOver"));
-        pane.setOnMouseDragOver(event -> Lg.d(TAG, "onMouseDragOver"));
-
-        Lg.d(TAG, "initialize()");
+    @FXML public void initialize() {
+        Rectangle backRectangle = new Rectangle();
+        backRectangle.setFill(Color.BEIGE);
+        backRectangle.setStrokeType(StrokeType.INSIDE);
+        backRectangle.setStroke(Color.GOLD);
+        backRectangle.setStrokeWidth(12);
+        backRectangle.widthProperty().bind(pane.widthProperty());
+        backRectangle.heightProperty().bind(pane.heightProperty());
+        pane.getChildren().add(backRectangle);
+        backRectangle.toBack();
     }
 
     private void createTestOutPlug(DoubleConsumer c) {
 
-        PositionProperty connectionPoint = new PositionProperty() {
-            @Override
-            public DoubleExpression x() {
-                return pane.widthProperty();
-            }
+        new PlugView(new Point2D(pane.getWidth(), pane.getHeight()/2.0), pane, this.getDropReceivers());
 
-            @Override
-            public DoubleExpression y() {
-                return pane.heightProperty().divide(2);
-            }
-        };
-
-        new PlugView(connectionPoint, this);
-
-
-    }
-
-    public void createTestNode() {
-        BinaryOperatorNode.AdderNode node = new BinaryOperatorNode.AdderNode();
-        final NodeView nodeBox = new NodeView(this, node, 50 + nodeList.size() * 10, 50 + nodeList.size() * 10, 100, 100);
-        pane.getChildren().add(nodeBox);
-        dropReceivers.add(nodeBox.getSocket());
-        onNodeAdded(node);
     }
 
     public void add(javafx.scene.Node node) {
@@ -80,7 +58,6 @@ public class NodesCanvasView implements NodesPresenter.View {
         return dropReceivers;
     }
 
-
     @Override
     public void onNodeRemoved(Node node) {
         nodeList.remove(node);
@@ -88,10 +65,8 @@ public class NodesCanvasView implements NodesPresenter.View {
     }
 
     private void printNodes(String action) {
-        Lg.d(TAG, "%s - Nodes: %s",
-                action,
-                nodeList.size() > 3?
-                        nodeList.size() + " nodes" : nodeList);
+        Lg.d(TAG, "%s - Nodes: %s", action,
+                nodeList.size() > 3? nodeList.size() + " nodes" : nodeList);
     }
 
     @Override
@@ -111,7 +86,21 @@ public class NodesCanvasView implements NodesPresenter.View {
         for(DoubleConsumer consumer : presenter.getConsumers()) {
             createTestOutPlug(consumer);
         }
-
-
     }
+
+    @FXML public void createLeaf(MouseEvent mouseEvent) {
+        createNodeView(Leaf.ONE);
+    }
+
+    @FXML public void createAdderNode() {
+        createNodeView(new BinaryOperatorNode.AdderNode());
+    }
+
+    private void createNodeView(Node unitLeaf) {
+        final NodeView nodeView = new NodeView(this, unitLeaf, 50 + nodeList.size() * 10, 50 + nodeList.size() * 10, 100, 100);
+        pane.getChildren().add(nodeView);
+        dropReceivers.add(nodeView.getSocket());
+        onNodeAdded(unitLeaf);
+    }
+
 }
