@@ -7,13 +7,15 @@ import paul.wintz.parametricequationdrawer.MainPresenter;
 import paul.wintz.parametricequationdrawer.controllers.AnimationControlsPresenter;
 import paul.wintz.parametricequationdrawer.controllers.CanvasControlsPresenter;
 import paul.wintz.parametricequationdrawer.controllers.DrawerControlsPresenter;
+import paul.wintz.parametricequationdrawer.controllers.StyleControlsPresenter;
 import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.SpirotechnicControlsPresenter;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 public class ControlsRoot extends TabPane implements MainPresenter.View {
 
-    @FXML private Tab nodesView;
+    //    @FXML private Tab nodesView;
+//    @FXML private NodesCanvasView nodesViewController;
     @FXML private Tab canvasControlsView;
     @FXML private CanvasControlsView canvasControlsViewController;
     @FXML private Tab animationControlsView;
@@ -26,6 +28,8 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
     @FXML private InstantDrawerPresenterSelectionView instantDrawerFactoryViewController;
     @FXML private Tab drawerControlsView;
     @FXML private DrawerControlsView drawerControlsViewController;
+    @FXML private Tab styleControlsView;
+    @FXML private StyleControlsView styleControlsViewController;
 
     @Override
     public CanvasControlsPresenter.View getCanvasController() {
@@ -53,4 +57,14 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
         drawerControlsViewController.instantDrawerFactoryView = checkNotNull(instantDrawerFactoryViewController);
         return checkNotNull(drawerControlsViewController);
     }
+
+    @Override
+    public StyleControlsPresenter.View getStyleControlsView() {
+        return checkNotNull(styleControlsViewController);
+    }
+
+//    @Override
+//    public NodesPresenter.View getNodesView() {
+//        return checkNotNull(nodesViewController);
+//    }
 }
