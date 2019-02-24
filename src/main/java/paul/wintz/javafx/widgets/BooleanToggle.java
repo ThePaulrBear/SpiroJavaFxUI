@@ -6,7 +6,7 @@ import paul.wintz.uioptiontypes.values.BooleanOption;
 public class BooleanToggle extends ToggleSwitch {
 
     public void setOption(BooleanOption option){
-        setSelected(option.initial);
+        setSelected(option.value);
         selectedProperty().addListener((observable, oldValue, newValue) -> option.emitViewValueChanged(newValue));
     }
 

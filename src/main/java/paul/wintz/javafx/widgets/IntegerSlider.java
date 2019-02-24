@@ -6,7 +6,7 @@ import paul.wintz.uioptiontypes.values.IntegerOption;
 public class IntegerSlider extends Slider {
 
     public void setOption(IntegerOption option) {
-        setValue(option.initial);
+        setValue(option.value);
         setShowTickMarks(true);
         setMinorTickCount(0);
         setSnapToTicks(true);

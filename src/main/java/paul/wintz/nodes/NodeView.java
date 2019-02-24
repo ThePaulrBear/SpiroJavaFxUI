@@ -7,9 +7,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
+import javafx.scene.text.Text;
 import paul.wintz.doublesourcehierarchy.Node;
 import paul.wintz.doublesourcehierarchy.Plug;
 import paul.wintz.utils.logging.Lg;
+
+import java.util.List;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -17,9 +20,28 @@ class NodeView extends Pane {
     private static final String TAG = Lg.makeTAG(NodeView.class);
 
     private final NodesCanvasView pane;
-    private final Circle socket;
+    private final SocketCircle socket;
+    private Node node;
+    private final Text text = new Text();
+
+    class SocketCircle extends Circle {
+        SocketCircle(int radius, Color fill) {
+            super(radius, fill);
+        }
+
+        void onConnect(Plug plug){
+            plug.plugInto(node);
+            Lg.v(TAG, "Connected " + plug + " to " + node + ", value is now: " + node.getValue());
+            text.setText("Value: " + node.getValue());
+        }
+
+        Point2D getGlobalPosition() {
+            return localToScene(getTranslateX(), getTranslateY());
+        }
+    }
 
     NodeView(NodesCanvasView pane, Node node, double x, double y, double width, double height) {
+        this.node = node;
         setTranslateX(x);
         setTranslateY(y);
         setWidth(width);
@@ -40,9 +62,12 @@ class NodeView extends Pane {
         background.setFill(Color.DARKSLATEGRAY);
         getChildren().add(background);
 
-        ImmutableList<Plug> plugs = node.getPlugs();
+        text.setText("Value: " + node.getValue());
+        getChildren().add(text);
+
+        List<Plug> plugs = node.getPlugs();
         for (int plugNdx = 0; plugNdx < plugs.size(); plugNdx++) {
-            createPlug(plugNdx, plugs.size());
+            createPlug(plugNdx, plugs);
         }
 
         socket = createSocket();
@@ -50,8 +75,8 @@ class NodeView extends Pane {
         FXUtils.setUpDragging(background, new RectangleDraggable()) ;
     }
 
-    private Circle createSocket() {
-        Circle socketCircle = new Circle(15, Color.BLUE);
+    private SocketCircle createSocket() {
+        SocketCircle socketCircle = new SocketCircle(15, Color.BLUE);
         socketCircle.setCenterX(getWidth());
         socketCircle.setCenterY(getHeight() / 2.0);
 
@@ -60,13 +85,13 @@ class NodeView extends Pane {
         return socketCircle;
     }
 
-    private void createPlug(int plugNdx, double plugCount) {
-        final double verticalOffset = ((plugNdx + 0.5) * getHeight()) / plugCount;
+    private void createPlug(int plugNdx, List<Plug> plugs) {
+        final double verticalOffset = ((plugNdx + 0.5) * getHeight()) / plugs.size();
         Point2D connectionPoint = new Point2D(0, verticalOffset);
-        new PlugView(connectionPoint, this, pane.getDropReceivers());
+        new PlugView(connectionPoint, this, pane.getDropReceivers(), plugs.get(plugNdx));
     }
 
-    public Circle getSocket() {
+    public NodeView.SocketCircle getSocket() {
         return socket;
     }
 

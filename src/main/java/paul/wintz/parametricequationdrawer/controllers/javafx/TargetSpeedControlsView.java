@@ -2,7 +2,7 @@ package paul.wintz.parametricequationdrawer.controllers.javafx;
 
 import javafx.fxml.FXML;
 import paul.wintz.javafx.widgets.IntegerSlider;
-import paul.wintz.sourcefactories.TargetSpeedController;
+import paul.wintz.sourcefactories.speedcontroller.TargetSpeedController;
 import paul.wintz.uioptiontypes.values.IntegerOption;
 import paul.wintz.utils.logging.Lg;
 

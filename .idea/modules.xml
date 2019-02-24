@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Utils/PaulWintzUtils.iml" filepath="$PROJECT_DIR$/../Utils/PaulWintzUtils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ProcessingUtils/ProcessingUtils.iml" filepath="$PROJECT_DIR$/../ProcessingUtils/ProcessingUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpiroJavaFxUI.iml" filepath="$PROJECT_DIR$/SpiroJavaFxUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spirotechnics/Spirotechnic.iml" filepath="$PROJECT_DIR$/../spirotechnics/Spirotechnic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spirotechnics.iml" filepath="$PROJECT_DIR$/.idea/modules/spirotechnics.iml" />
     </modules>
   </component>
 </project>

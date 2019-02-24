@@ -2,9 +2,11 @@ package paul.wintz.nodes;
 
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Point2D;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import paul.wintz.doublesourcehierarchy.Plug;
 import paul.wintz.utils.logging.Lg;
 
 import java.util.Set;
@@ -14,23 +16,16 @@ class PlugView {
     private static final String TAG = Lg.makeTAG(PlugView.class);
     private final Circle plugEndCircle;
     private Point2D connectionPoint;
-    private final Set<Circle> dropReceivers;
+    private final Set<NodeView.SocketCircle> dropReceivers;
+    private Plug plug;
 
-    public PlugView(Point2D connectionPoint, Pane parent, Set<Circle> dropReceivers) {
+    PlugView(Point2D connectionPoint, Pane parent, Set<NodeView.SocketCircle> dropReceivers, Plug plug) {
         this.connectionPoint = connectionPoint;
         this.dropReceivers = dropReceivers;
+        this.plug = plug;
         plugEndCircle = new Circle(10, Color.BLACK);
 
-        FXUtils.setUpDragging(plugEndCircle, new CircleDraggable(), event -> {
-            Lg.v(TAG, "%s dragDropped", this);
-            for(Circle circle : this.dropReceivers) {
-                if(FXUtils.doCirclesIntersect(plugEndCircle, circle)) {
-                    bindToCircle(circle);
-                    return;
-                }
-            }
-            bindEndToLeftOfCordConnection();
-        });
+        FXUtils.setUpDragging(plugEndCircle, new CircleDraggable(), this::onPlugDropped);
 
         bindEndToLeftOfCordConnection();
 
@@ -45,13 +40,13 @@ class PlugView {
 
     }
 
-    public void bindEndToLeftOfCordConnection() {
+    private void bindEndToLeftOfCordConnection() {
         plugEndCircle.setCenterX(this.connectionPoint.getX() - 20);
         plugEndCircle.setCenterY(this.connectionPoint.getY());
     }
 
-    public void bindToCircle(Circle circle) {
-        Lg.i(TAG, "Binding " + circle + " to " + this);
+    private void bindToSocketCircle(NodeView.SocketCircle circle) {
+        Lg.i(TAG, "Binding " + this + " to " + circle);
 
         circle.localToSceneTransformProperty().addListener(observable -> Lg.v(TAG, "localToSceneTransformProperty changed"));
 
@@ -63,10 +58,23 @@ class PlugView {
                 Bindings.createDoubleBinding(
                         () -> positionInLocal(circle).getY(),
                         circle.getParent().translateYProperty(), plugEndCircle.getParent().translateYProperty()));
+
+        circle.onConnect(plug);
     }
 
     private Point2D positionInLocal(Circle circle) {
         return plugEndCircle.sceneToLocal(circle.localToScene(circle.getCenterX(), circle.getCenterY()));
+    }
+
+    private void onPlugDropped(MouseEvent event) {
+        for (NodeView.SocketCircle circle : this.dropReceivers) {
+            if (FXUtils.doCirclesIntersect(plugEndCircle, circle)) {
+                bindToSocketCircle(circle);
+                return;
+            }
+        }
+        bindEndToLeftOfCordConnection();
+        event.consume();
     }
 
     private class CircleDraggable implements FXUtils.DraggableWrapper {

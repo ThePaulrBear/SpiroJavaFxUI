@@ -10,7 +10,11 @@ import static paul.wintz.utils.color.ColorUtils.*;
 public class ColorSelector extends ColorPicker {
 
     public void setOption(ColorOption option){
-        setValue(Color.rgb(option.red, option.green, option.blue, option.alpha / 255.0));
+        int red = ColorUtils.red(option.getValue());
+        int green = ColorUtils.red(option.getValue());
+        int blue = ColorUtils.red(option.getValue());
+        double alphaNormalized = ColorUtils.red(option.getValue()) / 255.0;
+        setValue(Color.rgb(red, green, blue, alphaNormalized));
         valueProperty().addListener((observable, oldValue, newValue) -> option.emitViewValueChanged(colorToInt(newValue)));
     }
 

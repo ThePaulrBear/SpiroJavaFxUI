@@ -30,7 +30,7 @@ public abstract class FXPresenterSelectionView implements PresenterFactoryPresen
         Lg.v(TAG, "setPresentersOption(%s)", presenterChoices);
 
         listOfPresenters.setOption(presenterChoices);
-        for(Class<? extends Presenter<?>> choice : presenterChoices) {
+        for(Class<? extends Presenter<?>> choice : presenterChoices.getList()) {
             listOfPresenters.getItems().add(choice);
         }
     }

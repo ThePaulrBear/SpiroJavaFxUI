@@ -2,8 +2,8 @@ package paul.wintz.parametricequationdrawer.controllers.javafx;
 
 import javafx.fxml.FXML;
 import paul.wintz.javafx.widgets.LoaderView;
-import paul.wintz.sourcefactories.TargetInstantsPerCycle;
-import paul.wintz.sourcefactories.TargetSpeedController;
+import paul.wintz.sourcefactories.speedcontroller.TargetInstantsPerCycle;
+import paul.wintz.sourcefactories.speedcontroller.TargetSpeedController;
 import paul.wintz.typefactory.TypeFactory;
 import paul.wintz.utils.logging.Lg;
 

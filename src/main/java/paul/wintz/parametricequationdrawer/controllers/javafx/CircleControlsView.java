@@ -14,13 +14,13 @@ public class CircleControlsView implements SpirotechnicControlsPresenter.CircleC
 
     @Override
     public void setRadiusOption(IntegerOption radiusOption) {
-        Lg.v(TAG, "setRadiusOption(%s)", radiusOption);
+//        Lg.v(TAG, "setRadiusOption(%s)", radiusOption);
         radius.setOption(radiusOption);
     }
 
     @Override
     public void setVelocityOption(IntegerOption velocityOption) {
-        Lg.v(TAG, "setVelocityOption(%s)", velocityOption);
+//        Lg.v(TAG, "setVelocityOption(%s)", velocityOption);
         velocity.setOption(velocityOption);
     }
 }

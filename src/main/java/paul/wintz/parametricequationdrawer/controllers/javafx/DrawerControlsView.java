@@ -7,12 +7,13 @@ import paul.wintz.mvp.Presenter;
 import paul.wintz.parametricequationdrawer.controllers.DrawerControlsPresenter;
 import paul.wintz.mvp.PresenterFactoryPresenter;
 import paul.wintz.sourcefactories.*;
+import paul.wintz.sourcefactories.framedrawer.FinishGraph;
+import paul.wintz.sourcefactories.framedrawer.SnakeDrawer;
+import paul.wintz.sourcefactories.framedrawer.StandardDrawer;
 import paul.wintz.spirotechnics.generalizedspirotechnic.EllipsesSpirotechnicGraphable;
 import paul.wintz.typefactory.TypeFactory;
 import paul.wintz.uioptiontypes.events.EventOption;
 import paul.wintz.uioptiontypes.values.BooleanOption;
-import paul.wintz.uioptiontypes.values.FloatOption;
-import paul.wintz.uioptiontypes.values.IntegerOption;
 import paul.wintz.uioptiontypes.values.ListOption;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -82,9 +83,8 @@ public class DrawerControlsView implements DrawerControlsPresenter.View {
         public TypeFactory getViewFactory() {
             return TypeFactory.builder()
                     .putType(StandardDrawer.View.class, () -> {throw new RuntimeException();})
-                    .putType(FinishGraph.View.class, () -> {throw new RuntimeException();})
+                    .putType(Void.class, () -> {throw new RuntimeException();})
                     .putType(SnakeDrawer.View.class, () -> {throw new RuntimeException();})
-                    .putType(Void.class, () -> null)
                     .build();
         }
 

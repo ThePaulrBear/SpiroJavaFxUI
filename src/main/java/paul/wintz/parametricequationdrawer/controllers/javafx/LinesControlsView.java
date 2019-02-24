@@ -4,11 +4,10 @@ import javafx.fxml.FXML;
 import paul.wintz.javafx.widgets.IntegerSlider;
 import paul.wintz.math.Vector2D;
 import paul.wintz.sourcefactories.*;
+import paul.wintz.sourcefactories.instantdrawer.LinesPresenter;
 import paul.wintz.uioptiontypes.values.IntegerOption;
 import paul.wintz.uioptiontypes.values.ListOption;
 import paul.wintz.utils.logging.Lg;
-
-import javax.sound.sampled.Line;
 
 public class LinesControlsView implements LinesPresenter.View {
     private static final String TAG = Lg.makeTAG(LinesControlsView.class);
@@ -31,9 +30,7 @@ public class LinesControlsView implements LinesPresenter.View {
     public void setPositionConsumer(VectorConsumer positionConsumer) {
         positionConsumer.setSource(() -> {
             i++;
-            Vector2D vector2D = Vector2D.fromPolar(i * 0.01, 100);
-            //Lg.v(TAG, "position: %s", vector2D);
-            return vector2D;
+            return Vector2D.fromPolar(i * 0.01, 100);
         });
     }
 

@@ -10,16 +10,12 @@ public class ListSelector<T> extends ListView<T> {
 
     public ListSelector() {
         super();
-
     }
 
     public void setOption(ListOption<T> option) {
-        getSelectionModel().selectedItemProperty().addListener(new ChangeListener<T>() {
-            @Override
-            public void changed(ObservableValue<? extends T> observable, T oldValue, T newValue) {
-                option.emitViewValueChanged(newValue);
-            }
-        });
+        getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> option.emitViewValueChanged(newValue)
+        );
     }
 
 }

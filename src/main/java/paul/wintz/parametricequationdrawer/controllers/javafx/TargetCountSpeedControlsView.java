@@ -2,7 +2,7 @@ package paul.wintz.parametricequationdrawer.controllers.javafx;
 
 import javafx.fxml.FXML;
 import paul.wintz.javafx.widgets.IntegerSpinner;
-import paul.wintz.sourcefactories.TargetInstantsPerCycle;
+import paul.wintz.sourcefactories.speedcontroller.TargetInstantsPerCycle;
 import paul.wintz.uioptiontypes.values.IntegerOption;
 import paul.wintz.utils.logging.Lg;
 
