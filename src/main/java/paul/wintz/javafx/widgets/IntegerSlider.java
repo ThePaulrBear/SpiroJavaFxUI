@@ -7,7 +7,7 @@ public class IntegerSlider extends Slider {
 
     public void setOption(IntegerOption option) {
         setValue(option.value);
-        setShowTickMarks(true);
+        setShowTickMarks(option.getNumberOfValuesInRange() < 30);
         setMinorTickCount(0);
         setSnapToTicks(true);
         setMajorTickUnit(option.increment);
