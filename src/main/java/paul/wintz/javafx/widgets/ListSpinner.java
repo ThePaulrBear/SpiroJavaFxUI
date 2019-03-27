@@ -1,13 +1,11 @@
 package paul.wintz.javafx.widgets;
 
 import javafx.collections.FXCollections;
-import javafx.scene.control.*;
-import javafx.util.Callback;
+import javafx.scene.control.ComboBox;
 import javafx.util.StringConverter;
 import paul.wintz.uioptiontypes.values.ListOption;
 
 public class ListSpinner<T> extends ComboBox<T> {
-
 
     public void setOption(ListOption<T> option) {
         valueProperty().addListener(

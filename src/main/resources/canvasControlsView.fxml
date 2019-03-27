@@ -5,11 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
 <?import paul.wintz.javafx.widgets.*?>
+
 <Tab
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
         text="Canvas"
         fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.CanvasControlsView">
+
     <GridPane
             alignment="center"
             hgap="10"

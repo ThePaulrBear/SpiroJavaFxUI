@@ -43,10 +43,10 @@ public class DrawerControlsView implements DrawerControlsPresenter.View {
         abortFrame.setOption(abortFrameOption);
     }
 
-    @Override
-    public PresenterFactoryPresenter.PresenterSelectionView getSpeedControllerFactoryView() {
-        return checkNotNull(speedControllerFactoryView);
-    }
+//    @Override
+//    public PresenterFactoryPresenter.PresenterSelectionView getSpeedControllerFactoryView() {
+//        return checkNotNull(speedControllerFactoryView);
+//    }
 
     @Override
     public PresenterFactoryPresenter.PresenterSelectionView getInstantDrawerFactoryView() {

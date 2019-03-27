@@ -8,22 +8,23 @@ import paul.wintz.parametricequationdrawer.controllers.AnimationControlsPresente
 import paul.wintz.parametricequationdrawer.controllers.CanvasControlsPresenter;
 import paul.wintz.parametricequationdrawer.controllers.DrawerControlsPresenter;
 import paul.wintz.parametricequationdrawer.controllers.StyleControlsPresenter;
+import paul.wintz.sourcefactories.speedcontroller.SpeedControllerPresenter;
 import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.SpirotechnicControlsPresenter;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 public class ControlsRoot extends TabPane implements MainPresenter.View {
 
-    //    @FXML private Tab nodesView;
-//    @FXML private NodesCanvasView nodesViewController;
+    // WARNING: The naming of the controllers is important!
+    // They must be named "<name_of_view>Controller".
     @FXML private Tab canvasControlsView;
     @FXML private CanvasControlsView canvasControlsViewController;
     @FXML private Tab animationControlsView;
     @FXML private AnimationControlsView animationControlsViewController;
     @FXML private Tab spirotechnicControlsView;
     @FXML private SpirotechnicControlsView spirotechnicControlsViewController;
-    @FXML private Tab speedControllerView;
-    @FXML private SpeedControllerPresenterSelectionView speedControllerViewController;
+    @FXML private Tab speedControlsView;
+    @FXML private SpeedControlsController speedControlsViewController;
     @FXML private Tab instantDrawerFactoryView;
     @FXML private InstantDrawerPresenterSelectionView instantDrawerFactoryViewController;
     @FXML private Tab drawerControlsView;
@@ -52,8 +53,12 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
     }
 
     @Override
+    public SpeedControllerPresenter.View getSpeedPresenterView() {
+        return checkNotNull(speedControlsViewController);
+    }
+
+    @Override
     public DrawerControlsPresenter.View getDrawerControlsView() {
-        drawerControlsViewController.speedControllerFactoryView = checkNotNull(speedControllerViewController);
         drawerControlsViewController.instantDrawerFactoryView = checkNotNull(instantDrawerFactoryViewController);
         return checkNotNull(drawerControlsViewController);
     }
@@ -63,8 +68,4 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
         return checkNotNull(styleControlsViewController);
     }
 
-//    @Override
-//    public NodesPresenter.View getNodesView() {
-//        return checkNotNull(nodesViewController);
-//    }
 }

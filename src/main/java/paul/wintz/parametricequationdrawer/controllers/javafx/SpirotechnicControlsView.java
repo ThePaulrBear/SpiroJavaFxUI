@@ -6,17 +6,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
-import paul.wintz.javafx.widgets.*;
+import paul.wintz.javafx.widgets.EventButton;
+import paul.wintz.javafx.widgets.IntegerSpinner;
 import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.SpirotechnicControlsPresenter;
 import paul.wintz.uioptiontypes.events.EventOption;
 import paul.wintz.uioptiontypes.values.IntegerOption;
 import paul.wintz.utils.logging.Lg;
 
 import java.io.IOException;
-import java.util.Stack;
 
 public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.View {
-        private static final String TAG = Lg.makeTAG(SpirotechnicControlsView.class);
+    private static final String TAG = Lg.makeTAG(SpirotechnicControlsView.class);
 
     @FXML private IntegerSpinner circleCount;
     @FXML private EventButton randomize;
