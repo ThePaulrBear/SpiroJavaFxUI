@@ -4,10 +4,9 @@ import javafx.fxml.FXML;
 import paul.wintz.javafx.widgets.BooleanToggle;
 import paul.wintz.javafx.widgets.EventButton;
 import paul.wintz.mvp.Presenter;
-import paul.wintz.parametricequationdrawer.controllers.DrawerControlsPresenter;
 import paul.wintz.mvp.PresenterFactoryPresenter;
-import paul.wintz.sourcefactories.*;
-import paul.wintz.sourcefactories.framedrawer.FinishGraph;
+import paul.wintz.parametricequationdrawer.controllers.DrawerControlsPresenter;
+import paul.wintz.sourcefactories.SpirotechnicGraphablePresenter;
 import paul.wintz.sourcefactories.framedrawer.SnakeDrawer;
 import paul.wintz.sourcefactories.framedrawer.StandardDrawer;
 import paul.wintz.spirotechnics.generalizedspirotechnic.EllipsesSpirotechnicGraphable;
@@ -24,7 +23,6 @@ public class DrawerControlsView implements DrawerControlsPresenter.View {
     @FXML private EventButton zeroTime;
     @FXML private EventButton abortFrame;
     //FIXME these should be loaded in FXML
-    SpeedControllerPresenterSelectionView speedControllerFactoryView;
     InstantDrawerPresenterSelectionView instantDrawerFactoryView;
     private PresenterFactoryPresenter.PresenterSelectionView frameDrawerFactoryView = new FakeFrameDrawerPresenterSelectionView();
 

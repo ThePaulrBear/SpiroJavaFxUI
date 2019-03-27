@@ -1,10 +1,10 @@
 package paul.wintz.parametricequationdrawer.controllers.javafx;
 
 import javafx.fxml.FXML;
+import paul.wintz.javafx.widgets.EquationField;
 import paul.wintz.javafx.widgets.IntegerSlider;
-import paul.wintz.math.Vector2D;
-import paul.wintz.sourcefactories.*;
 import paul.wintz.sourcefactories.instantdrawer.LinesPresenter;
+import paul.wintz.uioptiontypes.values.DoubleEquationOption;
 import paul.wintz.uioptiontypes.values.IntegerOption;
 import paul.wintz.uioptiontypes.values.ListOption;
 import paul.wintz.utils.logging.Lg;
@@ -13,6 +13,9 @@ public class LinesControlsView implements LinesPresenter.View {
     private static final String TAG = Lg.makeTAG(LinesControlsView.class);
 
     @FXML private IntegerSlider segments;
+    @FXML private EquationField direction;
+    @FXML private EquationField lineStart;
+    @FXML private EquationField lineEnd;
 
     @Override
     public void setSegmentsOption(IntegerOption segmentsOption) {
@@ -24,38 +27,18 @@ public class LinesControlsView implements LinesPresenter.View {
 
     }
 
-    private int i = 0;
-
     @Override
-    public void setPositionConsumer(VectorConsumer positionConsumer) {
-        positionConsumer.setSource(() -> {
-            i++;
-            return Vector2D.fromPolar(i * 0.01, 100);
-        });
+    public void setDirectionOption(DoubleEquationOption directionOption) {
+        direction.setOption(directionOption);
     }
 
     @Override
-    public void setDirectionDoubleConsumer(DoubleConsumer directionDoubleConsumer) {
-        directionDoubleConsumer.setSource(() -> 0);
+    public void setLineStartOption(DoubleEquationOption lineStartOption) {
+        lineStart.setOption(lineStartOption);
     }
 
     @Override
-    public void setStrokeWeightDoubleConsumer(DoubleConsumer strokeWeightDoubleConsumer) {
-        strokeWeightDoubleConsumer.setSource(() -> 3);
-    }
-
-    @Override
-    public void setStrokeColorDoubleConsumer(ColorConsumer strokeColorDoubleConsumer) {
-        strokeColorDoubleConsumer.setSource(() -> 0x55ff0000);
-    }
-
-    @Override
-    public void setLineStartDoubleConsumer(DoubleConsumer lineStartDoubleConsumer) {
-        lineStartDoubleConsumer.setSource(() -> -2);
-    }
-
-    @Override
-    public void setLineEndDoubleConsumer(DoubleConsumer lineEndDoubleConsumer) {
-        lineEndDoubleConsumer.setSource(() -> 1);
+    public void setLineEndOption(DoubleEquationOption lineEndOption) {
+        lineEnd.setOption(lineEndOption);
     }
 }

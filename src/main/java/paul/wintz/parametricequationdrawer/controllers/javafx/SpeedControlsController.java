@@ -28,10 +28,10 @@ public class SpeedControlsController implements SpeedControllerPresenter.View {
         switch (speedMode) {
             case TARGET_SPEED:
                 targetSpeedLabel.setStyle("-fx-font-weight: bold;");
-                instantCountLabel.setStyle("-fx-font-weight: thin;");
+                instantCountLabel.setStyle("-fx-font-weight: normal;");
                 break;
             case TARGET_COUNT:
-                targetSpeedLabel.setStyle("-fx-font-weight: thin;");
+                targetSpeedLabel.setStyle("-fx-font-weight: normal;");
                 instantCountLabel.setStyle("-fx-font-weight: bold;");
                 break;
         }

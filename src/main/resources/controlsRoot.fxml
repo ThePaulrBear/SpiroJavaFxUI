@@ -4,14 +4,12 @@
 <TabPane xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
          fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.ControlsRoot"
-         prefHeight="400.0" prefWidth="600.0">
+         prefHeight="400.0" prefWidth="700.0">
 
-    <!--<fx:include fx:id="nodesView" source="nodesView.fxml"/>-->
     <fx:include fx:id="spirotechnicControlsView" source="spirotechnicControlsView.fxml"/>
     <fx:include fx:id="styleControlsView" source="styleControlsView.fxml"/>
     <fx:include fx:id="canvasControlsView" source="canvasControlsView.fxml"/>
     <fx:include fx:id="animationControlsView" source="animationControlsView.fxml"/>
-    <!--<fx:include fx:id="speedControllerView" source="speedControllerFactoryView.fxml"/>-->
     <fx:include fx:id="instantDrawerFactoryView" source="instantDrawerFactoryView.fxml"/>
     <fx:include fx:id="drawerControlsView" source="drawerControlsView.fxml"/>
     <fx:include fx:id="speedControlsView" source="speedControlsView.fxml"/>
