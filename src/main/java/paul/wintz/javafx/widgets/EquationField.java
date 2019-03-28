@@ -6,7 +6,7 @@ import paul.wintz.uioptiontypes.values.DoubleEquationOption;
 public class EquationField extends TextField {
 
     public void setOption(DoubleEquationOption option){
-        setText(option.value.equation);
+        setText(option.getValue().equation);
         textProperty().addListener((observable, oldValue, newValue)
                 -> option.emitEquationChanged(newValue));
     }

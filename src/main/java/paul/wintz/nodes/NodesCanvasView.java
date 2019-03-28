@@ -13,7 +13,6 @@ import paul.wintz.doublesourcehierarchy.*;
 import paul.wintz.doublesourcehierarchy.Node;
 import paul.wintz.doublesourcehierarchy.Plug;
 import paul.wintz.doublesourcehierarchy.presenter.NodesPresenter;
-import paul.wintz.javafx.widgets.ListSelector;
 import paul.wintz.javafx.widgets.ListSpinner;
 import paul.wintz.sourcefactories.DoubleConsumer;
 import paul.wintz.uioptiontypes.values.ListOption;
@@ -23,7 +22,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.function.DoubleSupplier;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -102,7 +100,7 @@ public class NodesCanvasView implements NodesPresenter.View {
 
         ListOption<Class<? extends Node>> listOption = ListOption.<Class<? extends Node>>builder()
                 .addAll(presenter.getNodeTypes())
-                .viewValueChangeCallback(nodeType -> createNodeView(presenter.addNode(nodeType)))
+                .addViewValueChangeCallback(nodeType -> createNodeView(presenter.addNode(nodeType)))
                 .build();
         nodeTypes.setOption(listOption);
         listOption.emitViewValueChanged(IncrementerLeafNode.class);

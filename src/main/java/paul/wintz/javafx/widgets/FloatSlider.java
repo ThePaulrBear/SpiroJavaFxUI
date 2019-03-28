@@ -6,7 +6,7 @@ import paul.wintz.uioptiontypes.values.FloatOption;
 public class FloatSlider extends Slider {
 
     public void setOption(FloatOption option) {
-        setValue(option.value);
+        setValue(option.getValue());
         setBlockIncrement(option.increment);
         setMin(option.min);
         setMax(option.max);

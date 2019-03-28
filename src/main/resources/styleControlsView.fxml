@@ -3,7 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import paul.wintz.javafx.widgets.EquationField?>
+<?import paul.wintz.javafx.widgets.*?>
 <Tab
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
@@ -22,17 +22,20 @@
         <Label text="Stroke Weight" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <EquationField fx:id="sizeEquation" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
 
-        <Label text="Red" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <EquationField fx:id="redEquation" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label text="HSB vs RGB" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <BooleanToggle fx:id="colorModeToggle" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-        <Label text="Green" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-        <EquationField fx:id="greenEquation" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Label fx:id="channel1Label"  text="Red" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <EquationField fx:id="channel1Equation" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-        <Label text="Blue" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-        <EquationField fx:id="blueEquation" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <Label fx:id="channel2Label" text="Green" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <EquationField fx:id="channel2Equation" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
-        <Label text="Alpha" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-        <EquationField fx:id="alphaEquation" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <Label fx:id="channel3Label"  text="Blue" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <EquationField fx:id="channel3Equation" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+        <Label text="Alpha" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <EquationField fx:id="alphaChannelEquation" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
     </GridPane>
 </Tab>

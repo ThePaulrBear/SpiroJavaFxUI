@@ -12,7 +12,7 @@ public class IntegerSpinner extends Spinner<Integer> {
         valueProperty().addListener((observable, oldValue, newValue) -> option.emitViewValueChanged(getValue()));
         valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(option.min, option.max);
         valueFactory.setAmountToStepBy(option.increment);
-        valueFactory.setValue(option.value);
+        valueFactory.setValue(option.getValue());
         setValueFactory(valueFactory);
     }
 
