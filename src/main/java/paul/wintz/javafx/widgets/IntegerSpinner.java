@@ -14,6 +14,7 @@ public class IntegerSpinner extends Spinner<Integer> {
         valueFactory.setAmountToStepBy(option.increment);
         valueFactory.setValue(option.getValue());
         setValueFactory(valueFactory);
+        setEditable(true);
     }
 
     public void setValue(int value) {

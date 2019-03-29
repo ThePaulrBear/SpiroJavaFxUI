@@ -1,9 +1,8 @@
 package paul.wintz.javafx.widgets;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.util.Callback;
 import paul.wintz.uioptiontypes.values.ListOption;
 
 public class ListSelector<T> extends ListView<T> {
@@ -16,6 +15,24 @@ public class ListSelector<T> extends ListView<T> {
         getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> option.emitViewValueChanged(newValue)
         );
+
+        setCellFactory(new Callback<ListView<T>, ListCell<T>>() {
+            @Override
+            public ListCell<T> call(ListView<T> param) {
+                return new ListCell<T>(){
+                    @Override
+                    protected void updateItem(T item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if(empty) {
+                            setText("");
+                        } else {
+                            setText(option.nameMapper.apply(item));
+                        }
+                    }
+                };
+            }
+        });
     }
 
 }

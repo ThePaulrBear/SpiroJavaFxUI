@@ -19,11 +19,11 @@ public class ColorSelector extends ColorPicker {
     }
 
     private int colorToInt(Color color) {
-        return ColorUtils.rgba(color.getRed(), color.getGreen(), color.getBlue(), 256 * color.getOpacity());
+        return ColorUtils.rgba(color.getRed(), color.getGreen(), color.getBlue(), 255 * color.getOpacity());
     }
 
     private static Color intToColor(int rgba) {
-        return Color.rgb(red(rgba), green(rgba), blue(rgba), alpha(rgba) / 256.0);
+        return Color.rgb(red(rgba), green(rgba), blue(rgba), alpha(rgba) / 255.0);
     }
 
     public void setValue(int rgba) {
