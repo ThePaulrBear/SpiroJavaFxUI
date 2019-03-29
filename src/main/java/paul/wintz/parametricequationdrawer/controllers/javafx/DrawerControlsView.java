@@ -7,8 +7,6 @@ import paul.wintz.mvp.Presenter;
 import paul.wintz.mvp.PresenterFactoryPresenter;
 import paul.wintz.parametricequationdrawer.controllers.DrawerControlsPresenter;
 import paul.wintz.sourcefactories.SpirotechnicGraphablePresenter;
-import paul.wintz.sourcefactories.framedrawer.SnakeDrawer;
-import paul.wintz.sourcefactories.framedrawer.StandardDrawer;
 import paul.wintz.spirotechnics.generalizedspirotechnic.EllipsesSpirotechnicGraphable;
 import paul.wintz.typefactory.TypeFactory;
 import paul.wintz.uioptiontypes.events.EventOption;
@@ -24,7 +22,7 @@ public class DrawerControlsView implements DrawerControlsPresenter.View {
     @FXML private EventButton abortFrame;
     //FIXME these should be loaded in FXML
     InstantDrawerPresenterSelectionView instantDrawerFactoryView;
-    private PresenterFactoryPresenter.PresenterSelectionView frameDrawerFactoryView = new FakeFrameDrawerPresenterSelectionView();
+    FrameDrawerPresenterSelectionView frameDrawerFactoryView;
 
     @Override
     public void setClearEveryFrameOption(BooleanOption clearEveryFrame) {
@@ -40,11 +38,6 @@ public class DrawerControlsView implements DrawerControlsPresenter.View {
     public void setAbortFrameOption(EventOption abortFrameOption) {
         abortFrame.setOption(abortFrameOption);
     }
-
-//    @Override
-//    public PresenterFactoryPresenter.PresenterSelectionView getSpeedControllerFactoryView() {
-//        return checkNotNull(speedControllerFactoryView);
-//    }
 
     @Override
     public PresenterFactoryPresenter.PresenterSelectionView getInstantDrawerFactoryView() {
@@ -76,19 +69,4 @@ public class DrawerControlsView implements DrawerControlsPresenter.View {
         }
     }
 
-    private static class FakeFrameDrawerPresenterSelectionView implements PresenterFactoryPresenter.PresenterSelectionView {
-        @Override
-        public TypeFactory getViewFactory() {
-            return TypeFactory.builder()
-                    .putType(StandardDrawer.View.class, () -> {throw new RuntimeException();})
-                    .putType(Void.class, () -> {throw new RuntimeException();})
-                    .putType(SnakeDrawer.View.class, () -> {throw new RuntimeException();})
-                    .build();
-        }
-
-        @Override
-        public void setPresentersOption(ListOption<Class<? extends Presenter<?>>> presenterChoices) {
-
-        }
-    }
 }

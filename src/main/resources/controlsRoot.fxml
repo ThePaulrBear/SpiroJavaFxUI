@@ -11,6 +11,7 @@
     <fx:include fx:id="canvasControlsView" source="canvasControlsView.fxml"/>
     <fx:include fx:id="animationControlsView" source="animationControlsView.fxml"/>
     <fx:include fx:id="instantDrawerFactoryView" source="instantDrawerFactoryView.fxml"/>
+    <fx:include fx:id="frameDrawerFactoryView" source="frameDrawerFactoryView.fxml"/>
     <fx:include fx:id="drawerControlsView" source="drawerControlsView.fxml"/>
     <fx:include fx:id="speedControlsView" source="speedControlsView.fxml"/>
 

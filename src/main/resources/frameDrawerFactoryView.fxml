@@ -8,8 +8,8 @@
 <Tab
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
-        text="Instant Drawer"
-        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.InstantDrawerPresenterSelectionView">
+        text="Frame Drawer"
+        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.FrameDrawerPresenterSelectionView">
 
     <HBox minWidth="300" minHeight="300"
             alignment="center">

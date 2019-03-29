@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import paul.wintz.javafx.widgets.IntegerSlider?>
+<?import paul.wintz.javafx.widgets.EquationField?>
+<?import paul.wintz.javafx.widgets.IntegerSpinner?>
+<?import paul.wintz.javafx.widgets.FloatSlider?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.SnakeDrawerControlsView"
+          minWidth="300" minHeight="300"
+          alignment="center"
+          hgap="10" vgap="10">
+
+    <padding>
+        <Insets bottom="25" left="25" right="25" top="25"/>
+    </padding>
+
+    <Label text="Snake Count"
+           GridPane.rowIndex="0" GridPane.columnIndex="0" />
+    <IntegerSlider fx:id="snakeCount"
+           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <Label text="Offset"
+           GridPane.rowIndex="0" GridPane.columnIndex="0" />
+    <FloatSlider fx:id="offset"
+                    GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+</GridPane>
