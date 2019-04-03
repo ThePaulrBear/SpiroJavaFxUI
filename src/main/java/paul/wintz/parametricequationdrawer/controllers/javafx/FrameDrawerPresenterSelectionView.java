@@ -15,7 +15,7 @@ public class FrameDrawerPresenterSelectionView extends FXPresenterSelectionView 
     private final TypeFactory viewFactory = TypeFactory.builder()
             .putType(StandardDrawerPresenter.View.class, () -> getView("/standardDrawerControlsView.fxml"))
             .putType(SnakeDrawerPresenter.View.class, () -> getView("/snakeDrawerControlsView.fxml"))
-            .putType(Void.class, () -> null)
+            .onVoidSelectedAction(this::clearView)
             .build();
 
     @Override

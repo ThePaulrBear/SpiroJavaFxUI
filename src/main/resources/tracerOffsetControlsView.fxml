@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import paul.wintz.javafx.widgets.FloatSlider?>
+<?import paul.wintz.javafx.widgets.IntegerSlider?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.TracerOffsetControlsView"
+          minWidth="300" minHeight="300"
+          alignment="center"
+          hgap="10" vgap="10">
+
+    <padding>
+        <Insets bottom="25" left="25" right="25" top="25"/>
+    </padding>
+
+    <!--<Label text="Tracer shift"-->
+           <!--GridPane.rowIndex="0" GridPane.columnIndex="0" />-->
+
+    <!--<Label text="x"-->
+           <!--GridPane.rowIndex="1" GridPane.columnIndex="0" />-->
+
+    <!--<EquationField fx:id="shiftX"-->
+                   <!--GridPane.rowIndex="1" GridPane.columnIndex="1"/>-->
+
+    <!--<Label text="y"-->
+           <!--GridPane.rowIndex="1" GridPane.columnIndex="2" />-->
+
+    <!--<EquationField fx:id="shiftY"-->
+                   <!--GridPane.rowIndex="1" GridPane.columnIndex="3"/>-->
+
+
+    <Label text="Min shift"
+           GridPane.rowIndex="2" GridPane.columnIndex="0" />
+
+    <IntegerSlider fx:id="min" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <Label text="Max shift"
+           GridPane.rowIndex="3" GridPane.columnIndex="0" />
+
+    <IntegerSlider fx:id="max" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+</GridPane>
