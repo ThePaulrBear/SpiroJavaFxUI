@@ -36,38 +36,48 @@
                 GridPane.rowIndex="1" />
 
         <Label
-                text="Center"
+                text="Zoom"
                 GridPane.columnIndex="0"
                 GridPane.rowIndex="2" />
 
         <FloatSlider
-                fx:id="centerX"
+                fx:id="zoom"
                 GridPane.columnIndex="1"
                 GridPane.rowIndex="2" />
+
+        <Label
+                text="Center"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="3" />
+
+        <FloatSlider
+                fx:id="centerX"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="3" />
 
         <FloatSlider
                 fx:id="centerY"
                 GridPane.columnIndex="2"
-                GridPane.rowIndex="2" />
+                GridPane.rowIndex="3" />
 
         <Label
                 text="Rotation"
-                GridPane.rowIndex="3" />
+                GridPane.rowIndex="4" />
 
         <IntegerSlider
                 fx:id="rotationIndex"
                 GridPane.columnIndex="1"
-                GridPane.rowIndex="3"/>
+                GridPane.rowIndex="4"/>
 
         <Label
                 text="Background Color"
-                GridPane.rowIndex="4" />
+                GridPane.rowIndex="5" />
 
         <ColorSelector
                 fx:id="background"
                 GridPane.columnIndex="1"
                 GridPane.columnSpan="2"
-                GridPane.rowIndex="4"/>
+                GridPane.rowIndex="5"/>
 
         <EventButton
                 fx:id="clear"

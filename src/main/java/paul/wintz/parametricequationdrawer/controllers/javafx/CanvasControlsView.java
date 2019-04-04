@@ -14,6 +14,7 @@ public class CanvasControlsView implements CanvasControlsPresenter.View {
     private static final String TAG = Lg.makeTAG(CanvasControlsView.class);
 
     @FXML IntegerSpinner size;
+    @FXML FloatSlider zoom;
     @FXML FloatSlider centerX;
     @FXML FloatSlider centerY;
     @FXML IntegerSlider rotationIndex;
@@ -24,6 +25,11 @@ public class CanvasControlsView implements CanvasControlsPresenter.View {
 
     @Override public void setSizeOption(IntegerOption sizeOption) {
         size.setOption(sizeOption);
+    }
+
+    @Override
+    public void setZoomOption(FloatOption zoomOption) {
+        zoom.setOption(zoomOption);
     }
 
     @Override public void setCenterXOption(FloatOption centerX) {
@@ -58,6 +64,11 @@ public class CanvasControlsView implements CanvasControlsPresenter.View {
     public void setSize(int size) {
         Lg.v(TAG, "setSize(%d)", size);
         this.size.setValue(size);
+    }
+
+    @Override
+    public void setZoom(float zoom) {
+        this.zoom.setValue(zoom);
     }
 
     @Override
