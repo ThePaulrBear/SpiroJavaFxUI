@@ -25,6 +25,10 @@ public abstract class FXPresenterSelectionView implements PresenterFactoryPresen
         return checkNotNull(getLoaderView().load(location));
     }
 
+    protected void clearView() {
+        getLoaderView().getChildren().clear();
+    }
+
     @Override
     public final void setPresentersOption(ListOption<Class<? extends Presenter<?>>> presenterChoices) {
         Lg.v(TAG, "setPresentersOption(%s)", presenterChoices);

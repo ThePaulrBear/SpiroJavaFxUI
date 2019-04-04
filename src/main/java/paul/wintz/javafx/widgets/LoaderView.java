@@ -14,6 +14,7 @@ public class LoaderView extends AnchorPane {
     public <V> V load(String resourceLocation) {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource(resourceLocation));
+        getChildren().clear();
         try {
             Parent load = fxmlLoader.load();
             getChildren().add(load);
