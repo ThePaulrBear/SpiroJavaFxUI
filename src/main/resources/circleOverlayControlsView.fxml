@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import paul.wintz.javafx.widgets.*?>
+<Tab
+        xmlns:fx="http://javafx.com/fxml/1"
+        xmlns="http://javafx.com/javafx/8.0.121"
+        text="Overlay"
+        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.CircleOverlayControlsView">
+    <GridPane
+            alignment="center"
+            hgap="10"
+            vgap="10">
+
+        <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+
+        <Label
+                text="Show Circles"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="1" />
+
+        <BooleanToggle
+                fx:id="showCircles"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="1" />
+
+        <Label
+                text="Show Radii"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="2" />
+
+        <BooleanToggle
+                fx:id="showRadii"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="2" />
+
+        <Label
+                text="Show Inner Radii"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="3" />
+
+        <BooleanToggle
+                fx:id="showInnerRadii"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="3" />
+
+        <Label
+                text="Stroke Weight"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="4" />
+
+        <IntegerSlider
+                fx:id="circleStrokeWeight"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="4" />
+
+        <Label
+                text="Tracer Dot Size"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="5" />
+
+        <IntegerSlider
+                fx:id="tracerDotSize"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="5" />
+
+        <Label
+                text="Color"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="6" />
+
+        <ColorSelector
+                fx:id="circleColor"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="6" />
+
+    </GridPane>
+</Tab>

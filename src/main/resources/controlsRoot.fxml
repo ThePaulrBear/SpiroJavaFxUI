@@ -16,5 +16,6 @@
 
     <fx:include fx:id="drawerControlsView" source="drawerControlsView.fxml"/>
     <fx:include fx:id="speedControlsView" source="speedControlsView.fxml"/>
+    <fx:include fx:id="circleOverlayControlsView" source="circleOverlayControlsView.fxml"/>
 
 </TabPane>

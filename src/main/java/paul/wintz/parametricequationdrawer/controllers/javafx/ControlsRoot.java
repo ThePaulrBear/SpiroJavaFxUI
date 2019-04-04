@@ -9,6 +9,7 @@ import paul.wintz.parametricequationdrawer.controllers.AnimationControlsPresente
 import paul.wintz.parametricequationdrawer.controllers.CanvasControlsPresenter;
 import paul.wintz.parametricequationdrawer.controllers.DrawerControlsPresenter;
 import paul.wintz.parametricequationdrawer.controllers.StyleControlsPresenter;
+import paul.wintz.parametricequationdrawer.controllers.CircleOverlayControlsPresenter;
 import paul.wintz.sourcefactories.speedcontroller.SpeedControllerPresenter;
 import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.SpirotechnicControlsPresenter;
 
@@ -34,10 +35,10 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
     @FXML private DrawerControlsView drawerControlsViewController;
     @FXML private Tab styleControlsView;
     @FXML private StyleControlsView styleControlsViewController;
-
-
     @FXML private Tab frameTransitionerFactoryView;
     @FXML private PresenterFactoryPresenter.PresenterSelectionView frameTransitionerFactoryViewController;
+    @FXML private Tab circleOverlayControlsView;
+    @FXML private CircleOverlayControlsPresenter.View circleOverlayControlsViewController;
 
     @Override
     public CanvasControlsPresenter.View getCanvasController() {
@@ -79,6 +80,11 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
     @Override
     public PresenterFactoryPresenter.PresenterSelectionView getFrameTransitionerView() {
         return frameTransitionerFactoryViewController;
+    }
+
+    @Override
+    public CircleOverlayControlsPresenter.View getCircleOverlayControlsView() {
+        return circleOverlayControlsViewController;
     }
 
 }
