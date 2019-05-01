@@ -15,6 +15,8 @@ public class IntegerSpinner extends Spinner<Integer> {
         valueFactory.setValue(option.getValue());
         setValueFactory(valueFactory);
         setEditable(true);
+
+        option.addModelValueChangeCallback(this::setValue);
     }
 
     public void setValue(int value) {

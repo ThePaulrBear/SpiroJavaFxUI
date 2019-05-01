@@ -13,7 +13,10 @@ import paul.wintz.uioptiontypes.events.EventOption;
 import paul.wintz.uioptiontypes.values.IntegerOption;
 import paul.wintz.utils.logging.Lg;
 
+import javax.annotation.Nonnull;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.View {
     private static final String TAG = Lg.makeTAG(SpirotechnicControlsView.class);
@@ -24,32 +27,44 @@ public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.V
     @FXML private EventButton nextGraph;
     @FXML private VBox circlesColumn;
 
+    private List<SpirotechnicControlsPresenter.CircleControlsPresenter.View> circleViews = new ArrayList<>();
+
     @Override
     public void setCircleCountOption(IntegerOption circleCountOption) {
         circleCount.setOption(circleCountOption);
     }
 
+    @Nonnull
     @Override
-    public SpirotechnicControlsPresenter.CircleControlsPresenter.View addCircle() {
+    public List<SpirotechnicControlsPresenter.CircleControlsPresenter.View> setCircleCount(int count) {
+        while(circleViews.size() > count){
+            removeCircle();
+        }
+        while(circleViews.size() < count){
+            addCircle();
+        }
+        return circleViews;
+    }
+
+    private void addCircle() {
         FXMLLoader circleControlsLoader = new FXMLLoader();
         circleControlsLoader.setLocation(getClass().getResource("/circleControlsView.fxml"));
         try {
             Parent load = circleControlsLoader.load();
             circlesColumn.getChildren().add(load);
-            return circleControlsLoader.<CircleControlsView>getController();
+            circleViews.add(circleControlsLoader.<CircleControlsView>getController());
         } catch (IOException e) {
             Lg.e(TAG, "Failed to load circleControls", e);
             throw new RuntimeException(e);
         }
-
     }
 
-    @Override
-    public void removeCircle() {
+    private void removeCircle() {
         Lg.v(TAG, "Removing a circle. ");
         ObservableList<Node> children = circlesColumn.getChildren();
         int last = children.size() - 1;
         children.remove(last);
+        circleViews.remove(last);
     }
 
     @Override
