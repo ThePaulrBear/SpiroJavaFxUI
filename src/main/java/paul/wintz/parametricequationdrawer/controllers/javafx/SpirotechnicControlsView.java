@@ -46,6 +46,7 @@ public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.V
 
     @Override
     public void removeCircle() {
+        Lg.v(TAG, "Removing a circle. ");
         ObservableList<Node> children = circlesColumn.getChildren();
         int last = children.size() - 1;
         children.remove(last);

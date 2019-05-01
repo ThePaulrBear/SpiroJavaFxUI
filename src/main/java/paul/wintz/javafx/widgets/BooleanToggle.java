@@ -7,8 +7,9 @@ public class BooleanToggle extends ToggleSwitch {
 
     public void setOption(BooleanOption option){
         setSelected(option.getValue());
-        selectedProperty().addListener((observable, oldValue, newValue) ->
-                option.emitViewValueChanged(newValue));
+        selectedProperty().addListener((observable, oldValue, newValue) -> {
+            option.emitViewValueChanged(newValue);
+        });
     }
 
     public void setValue(boolean value) {

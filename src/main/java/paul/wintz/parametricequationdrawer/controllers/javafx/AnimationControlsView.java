@@ -30,6 +30,11 @@ public class AnimationControlsView implements AnimationControlsPresenter.View, A
         fps.setOption(fpsOption);
     }
 
+    @Override
+    public void setRecording(boolean isRecording) {
+        recording.setValue(isRecording);
+    }
+
     @Override public void setSaveDirectoryOption(FileOption path) {
         saveDirectorySelector.setOption(path);
     }
