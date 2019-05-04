@@ -2,7 +2,6 @@ package paul.wintz.parametricequationdrawer.controllers.javafx;
 
 import javafx.fxml.FXML;
 import paul.wintz.javafx.widgets.LoaderView;
-import paul.wintz.sourcefactories.framedrawer.SnakeDrawerPresenter;
 import paul.wintz.sourcefactories.framedrawer.StandardDrawerPresenter;
 import paul.wintz.typefactory.TypeFactory;
 
@@ -14,7 +13,7 @@ public class FrameDrawerPresenterSelectionView extends FXPresenterSelectionView 
 
     private final TypeFactory viewFactory = TypeFactory.builder()
             .putType(StandardDrawerPresenter.View.class, () -> getView("/standardDrawerControlsView.fxml"))
-            .putType(SnakeDrawerPresenter.View.class, () -> getView("/snakeDrawerControlsView.fxml"))
+//            .putType(SnakeDrawerPresenter.View.class, () -> getView("/snakeDrawerControlsView.fxml"))
             .onVoidSelectedAction(this::clearView)
             .build();
 
