@@ -3,11 +3,8 @@ package paul.wintz.parametricequationdrawer.controllers.javafx;
 import javafx.fxml.FXML;
 import paul.wintz.javafx.widgets.*;
 import paul.wintz.parametricequationdrawer.controllers.CanvasControlsPresenter;
-import paul.wintz.uioptiontypes.values.BooleanOption;
-import paul.wintz.uioptiontypes.values.ColorOption;
-import paul.wintz.uioptiontypes.values.FloatOption;
 import paul.wintz.uioptiontypes.events.EventOption;
-import paul.wintz.uioptiontypes.values.IntegerOption;
+import paul.wintz.uioptiontypes.values.*;
 import paul.wintz.utils.logging.Lg;
 
 public class CanvasControlsView implements CanvasControlsPresenter.View {
@@ -17,7 +14,7 @@ public class CanvasControlsView implements CanvasControlsPresenter.View {
     @FXML FloatSlider zoom;
     @FXML FloatSlider centerX;
     @FXML FloatSlider centerY;
-    @FXML IntegerSlider rotationIndex;
+    @FXML StringField rotation;
     @FXML ColorSelector background;
     @FXML EventButton clear;
     @FXML EventButton reset;
@@ -40,8 +37,8 @@ public class CanvasControlsView implements CanvasControlsPresenter.View {
         this.centerY.setOption(centerY);
     }
 
-    @Override public void setRotationOption(IntegerOption rotationOption) {
-        this.rotationIndex.setOption(rotationOption);
+    @Override public void setRotationOption(StringOption rotationOption) {
+        this.rotation.setOption(rotationOption);
     }
 
     @Override public void setBackgroundColorOption(ColorOption backgroundOption) {
@@ -84,9 +81,9 @@ public class CanvasControlsView implements CanvasControlsPresenter.View {
     }
 
     @Override
-    public void setRotation(int index) {
+    public void setRotation(String index) {
         Lg.v(TAG, "setRotation(%d)", index);
-        rotationIndex.setValue(index);
+        rotation.setValue(index);
     }
 
     @Override

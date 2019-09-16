@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import paul.wintz.javafx.widgets.IntegerSlider?>
-<?import paul.wintz.javafx.widgets.EquationField?>
+<?import paul.wintz.javafx.widgets.StringField?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.LinesControlsView"
@@ -22,12 +22,12 @@
            GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
     <Label text="Direction" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-    <EquationField fx:id="direction" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <StringField fx:id="direction" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
     <Label text="Start displacement" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <EquationField fx:id="lineStart" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <StringField fx:id="lineStart" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
     <Label text="End displacement" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <EquationField fx:id="lineEnd" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <StringField fx:id="lineEnd" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
 </GridPane>

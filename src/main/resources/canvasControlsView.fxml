@@ -64,8 +64,8 @@
                 text="Rotation"
                 GridPane.rowIndex="4" />
 
-        <IntegerSlider
-                fx:id="rotationIndex"
+        <StringField
+                fx:id="rotation"
                 GridPane.columnIndex="1"
                 GridPane.rowIndex="4"/>
 
