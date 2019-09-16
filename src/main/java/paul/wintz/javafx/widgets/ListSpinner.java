@@ -15,7 +15,6 @@ public class ListSpinner<T> extends ComboBox<T> {
                 }
         );
         setItems(FXCollections.observableArrayList(option.getList()));
-
     }
 
     public void setStringConverter(StringConverter<T> stringConverter) {

@@ -10,12 +10,14 @@ import static paul.wintz.utils.color.ColorUtils.*;
 public class ColorSelector extends ColorPicker {
 
     public void setOption(ColorOption option){
-        int red = ColorUtils.red(option.getValue());
-        int green = ColorUtils.red(option.getValue());
-        int blue = ColorUtils.red(option.getValue());
-        double alphaNormalized = ColorUtils.red(option.getValue()) / 255.0;
-        setValue(Color.rgb(red, green, blue, alphaNormalized));
+        // Set the initial value.
+        setValue(intToColor(option.getValue()));
+
+        // Setup the UI element to send changes (made by the user) to the ColorSelector.
         valueProperty().addListener((observable, oldValue, newValue) -> option.emitViewValueChanged(colorToInt(newValue)));
+
+        // Setup the UI element to reflect changes to the model.
+        option.addModelValueChangeCallback(rgba -> setValue(intToColor(rgba)));
     }
 
     private int colorToInt(Color color) {

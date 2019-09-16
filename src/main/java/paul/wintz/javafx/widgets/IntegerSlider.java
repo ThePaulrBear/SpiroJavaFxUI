@@ -15,6 +15,8 @@ public class IntegerSlider extends Slider {
         setMin(option.min);
         setMax(option.max);
         valueProperty().addListener((observable, oldValue, newValue) -> option.emitViewValueChanged(newValue.intValue()));
+
+        option.addModelValueChangeCallback(this::setValue);
     }
 
 }
