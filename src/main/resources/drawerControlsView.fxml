@@ -5,53 +5,42 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
 <?import paul.wintz.javafx.widgets.*?>
-<Tab
+<GridPane
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
-        text="Drawer"
-        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.DrawerControlsView">
-    <GridPane
-            alignment="center"
-            hgap="10"
-            vgap="10">
+        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.DrawerControlsView"
+        alignment="center"
+        hgap="10"
+        vgap="10">
 
-        <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
 
-        <Text
-                text="Drawer Controls"
-                GridPane.columnIndex="0"
-                GridPane.columnSpan="2"
-                GridPane.rowIndex="0" />
+    <Text
+            text="Drawer Controls"
+            GridPane.columnIndex="0"
+            GridPane.columnSpan="2"
+            GridPane.rowIndex="0" />
 
-        <Label
-                text="Clear every frame:"
-                GridPane.columnIndex="0"
-                GridPane.rowIndex="1" />
+    <Label
+            text="Clear every frame:"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="1" />
 
-        <BooleanToggle
-                fx:id="clearEveryFrame"
-                GridPane.columnIndex="1"
-                GridPane.rowIndex="1" />
+    <BooleanToggle
+            fx:id="clearEveryFrame"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="1" />
 
-        <EventButton
-                fx:id="zeroTime"
-                text="Zero time"
-                GridPane.columnIndex="1"
-                GridPane.rowIndex="2" />
+    <EventButton
+            fx:id="zeroTime"
+            text="Zero time"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="2" />
 
-        <EventButton
-                fx:id="abortFrame"
-                text="Abort Frame"
-                GridPane.columnIndex="1"
-                GridPane.rowIndex="3"/>
+    <EventButton
+            fx:id="abortFrame"
+            text="Abort Frame"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="3"/>
 
-        <TabPane
-                GridPane.columnIndex="0" GridPane.columnSpan="2"
-                GridPane.rowIndex="4">
-
-
-
-        </TabPane>
-
-    </GridPane>
-</Tab>
+</GridPane>

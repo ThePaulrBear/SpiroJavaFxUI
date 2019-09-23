@@ -1,15 +1,11 @@
 package paul.wintz.parametricequationdrawer.controllers.javafx;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.Pane;
 import paul.wintz.mvp.PresenterFactoryPresenter;
 import paul.wintz.parametricequationdrawer.MainPresenter;
-import paul.wintz.parametricequationdrawer.controllers.AnimationControlsPresenter;
-import paul.wintz.parametricequationdrawer.controllers.CanvasControlsPresenter;
-import paul.wintz.parametricequationdrawer.controllers.DrawerControlsPresenter;
-import paul.wintz.parametricequationdrawer.controllers.StyleControlsPresenter;
-import paul.wintz.parametricequationdrawer.controllers.CircleOverlayControlsPresenter;
+import paul.wintz.parametricequationdrawer.controllers.*;
 import paul.wintz.sourcefactories.speedcontroller.SpeedControllerPresenter;
 import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.SpirotechnicControlsPresenter;
 
@@ -19,25 +15,25 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
 
     // WARNING: The naming of the controllers is important!
     // They must be named "<name_of_view>Controller".
-    @FXML private Tab canvasControlsView;
+    @FXML private Pane canvasControlsView;
     @FXML private CanvasControlsView canvasControlsViewController;
-    @FXML private Tab animationControlsView;
+    @FXML private Pane animationControlsView;
     @FXML private AnimationControlsView animationControlsViewController;
-    @FXML private Tab spirotechnicControlsView;
+    @FXML private Pane spirotechnicControlsView;
     @FXML private SpirotechnicControlsView spirotechnicControlsViewController;
-    @FXML private Tab speedControlsView;
+    @FXML private Pane speedControlsView;
     @FXML private SpeedControlsController speedControlsViewController;
-    @FXML private Tab instantDrawerFactoryView;
+    @FXML private Pane instantDrawerFactoryView;
     @FXML private InstantDrawerPresenterSelectionView instantDrawerFactoryViewController;
-    @FXML private Tab frameDrawerFactoryView;
+    @FXML private Pane frameDrawerFactoryView;
     @FXML private FrameDrawerPresenterSelectionView frameDrawerFactoryViewController;
-    @FXML private Tab drawerControlsView;
+    @FXML private Pane drawerControlsView;
     @FXML private DrawerControlsView drawerControlsViewController;
-    @FXML private Tab styleControlsView;
+    @FXML private Pane styleControlsView;
     @FXML private StyleControlsView styleControlsViewController;
-    @FXML private Tab frameTransitionerFactoryView;
+    @FXML private Pane frameTransitionerFactoryView;
     @FXML private PresenterFactoryPresenter.PresenterSelectionView frameTransitionerFactoryViewController;
-    @FXML private Tab circleOverlayControlsView;
+    @FXML private Pane circleOverlayControlsView;
     @FXML private CircleOverlayControlsPresenter.View circleOverlayControlsViewController;
 
     @Override

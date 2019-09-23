@@ -4,38 +4,35 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import paul.wintz.javafx.widgets.*?>
-<Tab
+
+<GridPane
+        alignment="center"
+        hgap="10"
+        vgap="10"
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
-        text="Style"
         fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.StyleControlsView">
 
-    <GridPane
-            alignment="center"
-            hgap="10"
-            vgap="10">
+    <padding>
+        <Insets bottom="25" left="25" right="25" top="25"/>
+    </padding>
 
-        <padding>
-            <Insets bottom="25" left="25" right="25" top="25"/>
-        </padding>
+    <Label text="Stroke Weight" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <StringField fx:id="sizeEquation" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
 
-        <Label text="Stroke Weight" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <StringField fx:id="sizeEquation" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <Label text="HSB vs RGB" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <BooleanToggle fx:id="colorModeToggle" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-        <Label text="HSB vs RGB" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <BooleanToggle fx:id="colorModeToggle" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label fx:id="channel1Label"  text="Red" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <StringField fx:id="channel1Equation" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-        <Label fx:id="channel1Label"  text="Red" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-        <StringField fx:id="channel1Equation" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Label fx:id="channel2Label" text="Green" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <StringField fx:id="channel2Equation" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
-        <Label fx:id="channel2Label" text="Green" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-        <StringField fx:id="channel2Equation" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Label fx:id="channel3Label"  text="Blue" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <StringField fx:id="channel3Equation" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
-        <Label fx:id="channel3Label"  text="Blue" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-        <StringField fx:id="channel3Equation" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Label text="Alpha" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <StringField fx:id="alphaChannelEquation" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
-        <Label text="Alpha" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-        <StringField fx:id="alphaChannelEquation" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-
-    </GridPane>
-</Tab>
+</GridPane>

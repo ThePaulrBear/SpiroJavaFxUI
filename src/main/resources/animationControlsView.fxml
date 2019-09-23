@@ -4,34 +4,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import paul.wintz.javafx.widgets.*?>
-<Tab
+<GridPane
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
-        text="Animation"
-        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.AnimationControlsView">
+        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.AnimationControlsView"
+        alignment="center"
+        hgap="10"
+        vgap="10">
 
-    <GridPane
-            alignment="center"
-            hgap="10"
-            vgap="10">
+    <padding>
+        <Insets bottom="25" left="25" right="25" top="25"/>
+    </padding>
 
-        <padding>
-            <Insets bottom="25" left="25" right="25" top="25"/>
-        </padding>
+    <Label text="Is Recording" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <BooleanToggle fx:id="recording" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
 
-        <Label text="Is Recording" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <BooleanToggle fx:id="recording" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <Label text="Frame Count" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <IntegerSpinner fx:id="frameCount" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-        <Label text="Frame Count" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <IntegerSpinner fx:id="frameCount" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="FPS" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <FloatSlider fx:id="fps" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-        <Label text="FPS" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-        <FloatSlider fx:id="fps" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Label text="Save Directory" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <DirectorySelector fx:id="saveDirectorySelector" text="Select" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
-        <Label text="Save Directory" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-        <DirectorySelector fx:id="saveDirectorySelector" text="Select" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <EventButton fx:id="save" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
-        <EventButton fx:id="save" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-
-    </GridPane>
-</Tab>
+</GridPane>

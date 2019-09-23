@@ -5,22 +5,20 @@
 <?import javafx.scene.layout.*?>
 <?import paul.wintz.javafx.widgets.ListSelector?>
 <?import paul.wintz.javafx.widgets.LoaderView?>
-<Tab
+<HBox
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
-        text="Instant Drawer"
-        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.InstantDrawerPresenterSelectionView">
+        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.InstantDrawerPresenterSelectionView"
+        minWidth="300" minHeight="300"
+        alignment="center"
+>
 
-    <HBox minWidth="300" minHeight="300"
-            alignment="center">
+    <padding>
+        <Insets bottom="25" left="25" right="25" top="25"/>
+    </padding>
 
-        <padding>
-            <Insets bottom="25" left="25" right="25" top="25"/>
-        </padding>
+    <ListSelector fx:id="listOfPresenters" />
 
-        <ListSelector fx:id="listOfPresenters" />
+    <LoaderView fx:id="loaderView" />
 
-        <LoaderView fx:id="loaderView" />
-
-    </HBox>
-</Tab>
+</HBox>

@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
 <?import paul.wintz.javafx.widgets.EventButton?>
 <?import paul.wintz.javafx.widgets.IntegerSpinner?>
-<Tab
-        text="Spirotechnic"
-        xmlns="http://javafx.com/javafx"
-        xmlns:fx="http://javafx.com/fxml"
-        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.SpirotechnicControlsView">
-    <GridPane
-            alignment="center"
-            hgap="10"
-            vgap="10">
 
-        <IntegerSpinner fx:id="circleCount" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-        <EventButton text="Randomize" fx:id="randomize" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-        <EventButton text="Load Next Graph" fx:id="nextGraph" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-        <EventButton text="Load Previous Graph" fx:id="previousGraph" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-        <VBox fx:id="circlesColumn" GridPane.columnIndex="2" GridPane.rowIndex="0"
-            GridPane.rowSpan="5"
-        />
+<VBox alignment="TOP_CENTER" focusTraversable="true" prefWidth="300.0" spacing="20" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.SpirotechnicControlsView">
 
-    </GridPane>
-</Tab>
+    <IntegerSpinner fx:id="circleCount" />
+    <EventButton fx:id="randomize" text="Randomize" />
+    <EventButton fx:id="nextGraph" text="Load Next Graph" />
+    <EventButton fx:id="previousGraph" text="Load Previous Graph" />
+    <VBox fx:id="circlesColumn" maxHeight="20" spacing="10" />
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+
+</VBox>
