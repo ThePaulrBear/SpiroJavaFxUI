@@ -8,38 +8,45 @@
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.ControlsRoot">
 
-    <fx:include fx:id="spirotechnicControlsView" source="spirotechnicControlsView.fxml"/>
+    <ScrollPane prefHeight="700" fitToWidth="true">
+        <fx:include fx:id="spirotechnicControlsView" source="spirotechnicControlsView.fxml"/>
+    </ScrollPane>
 
-    <VBox prefWidth="400">
-        <TitledPane text="Drawing">
-            <fx:include fx:id="drawerControlsView" source="drawerControlsView.fxml" />
-        </TitledPane>
-        <TitledPane text="Style">
-            <fx:include fx:id="styleControlsView" source="styleControlsView.fxml" />
-        </TitledPane>
-        <TitledPane text="Speed">
-            <fx:include fx:id="speedControlsView" source="speedControlsView.fxml" />
-        </TitledPane>
-        <TitledPane text="Recording">
-            <fx:include fx:id="animationControlsView" source="animationControlsView.fxml" />
-        </TitledPane>
-        <TitledPane text="Overlay" expanded="false">
-            <fx:include fx:id="circleOverlayControlsView" source="circleOverlayControlsView.fxml" />
-        </TitledPane>
-    </VBox>
 
-    <VBox>
-        <TitledPane text="Canvas">
-            <fx:include fx:id="canvasControlsView" source="canvasControlsView.fxml" />
-        </TitledPane>
-        <TitledPane text="Instant" expanded="false">
-            <fx:include fx:id="instantDrawerFactoryView" source="instantDrawerFactoryView.fxml" />
-        </TitledPane>
-        <TitledPane text="Frame" expanded="false">
-            <fx:include fx:id="frameDrawerFactoryView" source="frameDrawerFactoryView.fxml" />
-        </TitledPane>
-        <TitledPane text="Transitions" expanded="false">
-            <fx:include fx:id="frameTransitionerFactoryView" source="frameTransitionerFactoryView.fxml" />
-        </TitledPane>
-      </VBox>
+    <ScrollPane prefHeight="700" fitToWidth="true">
+        <VBox prefWidth="400">
+            <TitledPane text="Drawing">
+                <fx:include fx:id="drawerControlsView" source="drawerControlsView.fxml" />
+            </TitledPane>
+            <TitledPane text="Style">
+                <fx:include fx:id="styleControlsView" source="styleControlsView.fxml" />
+            </TitledPane>
+            <TitledPane text="Speed">
+                <fx:include fx:id="speedControlsView" source="speedControlsView.fxml" />
+            </TitledPane>
+            <TitledPane text="Recording">
+                <fx:include fx:id="animationControlsView" source="animationControlsView.fxml" />
+            </TitledPane>
+            <TitledPane text="Overlay" expanded="false">
+                <fx:include fx:id="circleOverlayControlsView" source="circleOverlayControlsView.fxml" />
+            </TitledPane>
+        </VBox>
+    </ScrollPane>
+
+    <ScrollPane maxHeight="800" fitToWidth="true">
+        <VBox>
+            <TitledPane text="Canvas">
+                <fx:include fx:id="canvasControlsView" source="canvasControlsView.fxml" />
+            </TitledPane>
+            <TitledPane text="Instant" expanded="false">
+                <fx:include fx:id="instantDrawerFactoryView" source="instantDrawerFactoryView.fxml" />
+            </TitledPane>
+            <TitledPane text="Frame" expanded="false">
+                <fx:include fx:id="frameDrawerFactoryView" source="frameDrawerFactoryView.fxml" />
+            </TitledPane>
+            <TitledPane text="Transitions" expanded="false">
+                <fx:include fx:id="frameTransitionerFactoryView" source="frameTransitionerFactoryView.fxml" />
+            </TitledPane>
+        </VBox>
+    </ScrollPane>
 </HBox>

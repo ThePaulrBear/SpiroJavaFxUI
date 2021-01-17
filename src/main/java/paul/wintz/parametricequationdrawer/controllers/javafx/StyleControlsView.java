@@ -3,9 +3,11 @@ package paul.wintz.parametricequationdrawer.controllers.javafx;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import paul.wintz.javafx.widgets.BooleanToggle;
+import paul.wintz.javafx.widgets.FileSelector;
 import paul.wintz.javafx.widgets.StringField;
 import paul.wintz.parametricequationdrawer.controllers.StyleControlsPresenter;
 import paul.wintz.uioptiontypes.values.BooleanOption;
+import paul.wintz.uioptiontypes.values.JSONInPNGSaverOption;
 import paul.wintz.uioptiontypes.values.StringOption;
 import paul.wintz.utils.logging.Lg;
 
@@ -21,6 +23,8 @@ public class StyleControlsView implements StyleControlsPresenter.View {
     @FXML private Label channel3Label;
     @FXML private StringField channel3Equation;
     @FXML private StringField alphaChannelEquation;
+    @FXML private FileSelector loadFromFile;
+    @FXML private FileSelector saveToFile;
 
     @Override
     public void setSizeEquationOption(StringOption sizeEquationOption) {
@@ -52,6 +56,12 @@ public class StyleControlsView implements StyleControlsPresenter.View {
         this.channel2Equation.setOption(channel2Equation);
         this.channel3Equation.setOption(channel3Equation);
         alphaChannelEquation.setOption(alphaEquationOption);
+    }
+
+    @Override
+    public void setSettingsInPNGOptionOption(JSONInPNGSaverOption jsonInPNGSaverOption) {
+        loadFromFile.setOption(jsonInPNGSaverOption.getLoadOption(), "Load");
+        saveToFile.setOption(jsonInPNGSaverOption.getSaveOption(), "Save");
     }
 
 }

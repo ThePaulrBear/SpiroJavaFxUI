@@ -35,4 +35,10 @@
     <Label text="Alpha" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
     <StringField fx:id="alphaChannelEquation" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
+<!--    <Label text="Load From File" GridPane.columnIndex="0" GridPane.rowIndex="6"/>-->
+    <HBox GridPane.columnIndex="1" GridPane.rowIndex="6" spacing="12">
+        <FileSelector fx:id="loadFromFile"/>
+        <FileSelector fx:id="saveToFile"/>
+    </HBox>
+
 </GridPane>

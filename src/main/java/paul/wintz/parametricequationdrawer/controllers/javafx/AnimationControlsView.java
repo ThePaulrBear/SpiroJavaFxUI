@@ -3,10 +3,10 @@ package paul.wintz.parametricequationdrawer.controllers.javafx;
 import javafx.fxml.FXML;
 import paul.wintz.javafx.widgets.*;
 import paul.wintz.parametricequationdrawer.controllers.AnimationControlsPresenter;
-import paul.wintz.uioptiontypes.values.BooleanOption;
-import paul.wintz.uioptiontypes.values.FileOption;
-import paul.wintz.uioptiontypes.values.FloatOption;
 import paul.wintz.uioptiontypes.events.EventOption;
+import paul.wintz.uioptiontypes.values.BooleanOption;
+import paul.wintz.uioptiontypes.values.DirectoryOption;
+import paul.wintz.uioptiontypes.values.FloatOption;
 import paul.wintz.uioptiontypes.values.IntegerOption;
 
 public class AnimationControlsView implements AnimationControlsPresenter.View, AnimationControlsPresenter.SavingControlsView {
@@ -35,8 +35,8 @@ public class AnimationControlsView implements AnimationControlsPresenter.View, A
         recording.setValue(isRecording);
     }
 
-    @Override public void setSaveDirectoryOption(FileOption path) {
-        saveDirectorySelector.setOption(path);
+    @Override public void setSaveDirectoryOption(DirectoryOption path) {
+        saveDirectorySelector.setOption(path, "Choose Save Directory");
     }
 
     @Override
