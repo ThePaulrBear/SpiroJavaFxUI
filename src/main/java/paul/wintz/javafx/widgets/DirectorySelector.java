@@ -15,6 +15,7 @@ public class DirectorySelector extends Button {
     public void setOption(DirectoryOption path, String label) {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle(label);
+        directoryChooser.setInitialDirectory(path.getValue());
 
         setOnAction(event -> {
             Node source = (Node) event.getSource();
