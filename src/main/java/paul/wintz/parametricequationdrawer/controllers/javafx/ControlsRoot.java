@@ -83,4 +83,9 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
         return circleOverlayControlsViewController;
     }
 
+    @Override
+    public SaveLocationPresenter.View getSaveLocationView() {
+        return animationControlsViewController;
+    }
+
 }
