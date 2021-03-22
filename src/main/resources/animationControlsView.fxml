@@ -8,26 +8,31 @@
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
         fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.AnimationControlsView"
-        alignment="center"
         hgap="10"
         vgap="10">
 
     <padding>
-        <Insets bottom="25" left="25" right="25" top="25"/>
+        <Insets bottom="10" left="10" right="10" top="10"/>
     </padding>
 
-    <Label text="Is Recording" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Label text="Is Recording"
+           GridPane.columnIndex="0" GridPane.rowIndex="0"
+           GridPane.halignment="RIGHT"/>
     <BooleanToggle fx:id="recording" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
 
-    <Label text="Frame Count" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Label text="Frame Count"
+           GridPane.columnIndex="0" GridPane.rowIndex="1"
+           GridPane.halignment="RIGHT"/>
     <IntegerSpinner fx:id="frameCount" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-    <Label text="FPS" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Label text="FPS"
+           GridPane.columnIndex="0" GridPane.rowIndex="2"
+           GridPane.halignment="RIGHT"/>
     <FloatSlider fx:id="fps" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-    <Label text="Save Directory" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <DirectorySelector fx:id="saveDirectorySelector" text="Select" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <DirectorySelector fx:id="saveDirectorySelector" text="Pick Directory"
+                       GridPane.columnIndex="0" GridPane.rowIndex="3"/>
 
-    <EventButton fx:id="save" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <EventButton fx:id="save" text="Save Snapshot" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
 </GridPane>

@@ -2,15 +2,24 @@ package paul.wintz.parametricequationdrawer.controllers.javafx;
 
 import javafx.fxml.FXML;
 import paul.wintz.javafx.widgets.*;
+import paul.wintz.mvp.Presenter;
+import paul.wintz.mvp.PresenterFactoryPresenter;
 import paul.wintz.parametricequationdrawer.controllers.CanvasControlsPresenter;
+import paul.wintz.parametricequationdrawer.controllers.DrawerControlsPresenter;
+import paul.wintz.sourcefactories.SpirotechnicGraphablePresenter;
+import paul.wintz.spirotechnics.generalizedspirotechnic.EllipsesSpirotechnicGraphable;
+import paul.wintz.typefactory.TypeFactory;
 import paul.wintz.uioptiontypes.events.EventOption;
 import paul.wintz.uioptiontypes.values.*;
 import paul.wintz.utils.logging.Lg;
 
-public class CanvasControlsView implements CanvasControlsPresenter.View {
+import static com.google.common.base.Preconditions.checkNotNull;
+
+public class CanvasControlsView implements CanvasControlsPresenter.View, DrawerControlsPresenter.View  {
     private static final String TAG = Lg.makeTAG(CanvasControlsView.class);
 
-    @FXML IntegerSpinner size;
+    @FXML IntegerSpinner width;
+    @FXML IntegerSpinner height;
     @FXML FloatSlider zoom;
     @FXML FloatSlider centerX;
     @FXML FloatSlider centerY;
@@ -19,9 +28,20 @@ public class CanvasControlsView implements CanvasControlsPresenter.View {
     @FXML EventButton clear;
     @FXML EventButton reset;
     @FXML BooleanToggle preserveGraph;
+    @FXML BooleanToggle clearEveryFrame;
 
-    @Override public void setSizeOption(IntegerOption sizeOption) {
-        size.setOption(sizeOption);
+    //FIXME these should be loaded in FXML
+    InstantDrawerPresenterSelectionView instantDrawerFactoryView;
+    FrameDrawerPresenterSelectionView frameDrawerFactoryView;
+
+    @Override
+    public void setWidthOption(IntegerOption widthOption) {
+        width.setOption(widthOption);
+    }
+
+    @Override
+    public void setHeightOption(IntegerOption heightOption) {
+        height.setOption(heightOption);
     }
 
     @Override
@@ -58,9 +78,15 @@ public class CanvasControlsView implements CanvasControlsPresenter.View {
     }
 
     @Override
-    public void setSize(int size) {
-        Lg.v(TAG, "setSize(%d)", size);
-        this.size.setValue(size);
+    public void setWidth(int width) {
+        Lg.v(TAG, "setWidth(%d)", width);
+        this.width.setValue(width);
+    }
+
+    @Override
+    public void setHeight(int height) {
+        Lg.v(TAG, "setHeight(%d)", height);
+        this.width.setValue(height);
     }
 
     @Override
@@ -106,4 +132,48 @@ public class CanvasControlsView implements CanvasControlsPresenter.View {
         return preserveGraph.getValue();
     }
 
+    @Override
+    public void setClearEveryFrameOption(BooleanOption clearEveryFrame) {
+        this.clearEveryFrame.setOption(clearEveryFrame);
+    }
+
+    @Override
+    public void setZeroTimeOption(EventOption zeroTimeOption) {
+//        zeroTime.setOption(zeroTimeOption);
+    }
+
+    @Override
+    public void setAbortFrameOption(EventOption abortFrameOption) {
+//        abortFrame.setOption(abortFrameOption);
+    }
+
+    @Override
+    public PresenterFactoryPresenter.PresenterSelectionView getInstantDrawerFactoryView() {
+        return checkNotNull(instantDrawerFactoryView);
+    }
+
+    @Override
+    public PresenterFactoryPresenter.PresenterSelectionView getGraphableFactoryView() {
+        return new FakeGraphablePresenterSelectionView();
+    }
+
+    @Override
+    public PresenterFactoryPresenter.PresenterSelectionView getFrameDrawerFactoryView() {
+        return checkNotNull(frameDrawerFactoryView);
+    }
+
+    private static class FakeGraphablePresenterSelectionView implements PresenterFactoryPresenter.PresenterSelectionView {
+        @Override
+        public TypeFactory getViewFactory() {
+            return TypeFactory.builder()
+                    .putType(SpirotechnicGraphablePresenter.View.class, () -> {throw new RuntimeException();})
+                    .putType(EllipsesSpirotechnicGraphable.View.class, () -> {throw new RuntimeException();})
+                    .build();
+        }
+
+        @Override
+        public void setPresentersOption(ListOption<Class<? extends Presenter<?>>> presenterChoices) {
+
+        }
+    }
 }

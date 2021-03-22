@@ -5,40 +5,73 @@
 <?import javafx.scene.layout.*?>
 <?import paul.wintz.javafx.widgets.*?>
 
+<?import javafx.scene.text.Text?>
 <GridPane
-        alignment="center"
-        hgap="10"
-        vgap="10"
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
-        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.StyleControlsView">
+        fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.StyleControlsView"
+        alignment="CENTER_LEFT"
+        hgap="10"
+        vgap="10"
+>
 
     <padding>
-        <Insets bottom="25" left="25" right="25" top="25"/>
+        <Insets bottom="10" left="10" right="10" top="10"/>
     </padding>
 
-    <Label text="Stroke Weight" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-    <StringField fx:id="sizeEquation" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <Label text="Stroke Weight"
+           GridPane.columnIndex="0" GridPane.rowIndex="0"
+           GridPane.halignment="RIGHT"/>
+    <StringField fx:id="sizeEquation"
+                 GridPane.columnIndex="1" GridPane.rowIndex="0"
+                 GridPane.hgrow="always"/>
 
-    <Label text="HSB vs RGB" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-    <BooleanToggle fx:id="colorModeToggle" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="Color Mode"
+           GridPane.columnIndex="0" GridPane.rowIndex="1"
+           GridPane.halignment="RIGHT"/>
 
-    <Label fx:id="channel1Label"  text="Red" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <StringField fx:id="channel1Equation" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <HBox spacing="12"
+            GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Text text="HSB"/>
+        <BooleanToggle fx:id="colorModeToggle"
+                                         GridPane.columnIndex="1" GridPane.rowIndex="1"
+                                         GridPane.hgrow="always"/>
+        <Text text="RGB"/>
+    </HBox>
 
-    <Label fx:id="channel2Label" text="Green" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <StringField fx:id="channel2Equation" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Label fx:id="channel1Label" text="Red"
+           GridPane.columnIndex="0" GridPane.rowIndex="2"
+           GridPane.halignment="RIGHT"
+    />
+    <StringField fx:id="channel1Equation"
+                 GridPane.columnIndex="1" GridPane.rowIndex="2"
+                 GridPane.hgrow="always"/>
 
-    <Label fx:id="channel3Label"  text="Blue" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-    <StringField fx:id="channel3Equation" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Label fx:id="channel2Label" text="Green"
+           GridPane.columnIndex="0" GridPane.rowIndex="3"
+           GridPane.halignment="RIGHT"/>
+    <StringField fx:id="channel2Equation"
+                 GridPane.columnIndex="1" GridPane.rowIndex="3"
+                 GridPane.hgrow="always"/>
 
-    <Label text="Alpha" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-    <StringField fx:id="alphaChannelEquation" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <Label fx:id="channel3Label" text="Blue"
+           GridPane.columnIndex="0" GridPane.rowIndex="4"
+           GridPane.halignment="RIGHT"/>
+    <StringField fx:id="channel3Equation"
+                 GridPane.columnIndex="1" GridPane.rowIndex="4"
+                 GridPane.hgrow="always"/>
+
+    <Label text="Alpha"
+           GridPane.columnIndex="0" GridPane.rowIndex="5"
+           GridPane.halignment="RIGHT"/>
+    <StringField fx:id="alphaChannelEquation"
+                 GridPane.columnIndex="1" GridPane.rowIndex="5"
+                 GridPane.hgrow="always"/>
 
 <!--    <Label text="Load From File" GridPane.columnIndex="0" GridPane.rowIndex="6"/>-->
     <HBox GridPane.columnIndex="1" GridPane.rowIndex="6" spacing="12">
-        <FileSelector fx:id="loadFromFile"/>
-        <FileSelector fx:id="saveToFile"/>
+        <FileSelector fx:id="saveToFile" text="Save Style"/>
+        <FileSelector fx:id="loadFromFile" text="Load Style"/>
     </HBox>
 
 </GridPane>

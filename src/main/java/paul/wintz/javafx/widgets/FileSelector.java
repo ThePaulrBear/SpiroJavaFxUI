@@ -10,7 +10,7 @@ import java.io.File;
 
 public class FileSelector extends Button {
 
-    public void setOption(FileOption fileOption, String label) {
+    public void setOption(FileOption fileOption) {
         FileChooser fileChooser = new FileChooser();
 
         // Choose which types of files are displayed.
@@ -18,13 +18,10 @@ public class FileSelector extends Button {
         fileChooser.getExtensionFilters().add(filter);
 
         // Set the title that appears at the top of the file selection window.
-        fileChooser.setTitle(label);
+        fileChooser.setTitle(getText());
 
         // Choose what directory is displayed when the file selection window opens.
         fileChooser.setInitialDirectory(fileOption.initialDirectory.toFile());
-
-        // Set the button text.
-        this.setText(label);
 
         setOnAction(event -> {
             Node source = (Node) event.getSource();

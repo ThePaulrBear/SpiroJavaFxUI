@@ -2,9 +2,11 @@ package paul.wintz.javafx.widgets;
 
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Tooltip;
 import javafx.util.Callback;
 import paul.wintz.uioptiontypes.values.ListOption;
 
+@Deprecated
 public class ListSelector<T> extends ListView<T> {
 
     public ListSelector() {
@@ -15,6 +17,9 @@ public class ListSelector<T> extends ListView<T> {
         getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> option.emitViewValueChanged(newValue)
         );
+
+
+        setTooltip(new Tooltip(option.getDescription()));
 
         setCellFactory(new Callback<ListView<T>, ListCell<T>>() {
             @Override
@@ -27,7 +32,7 @@ public class ListSelector<T> extends ListView<T> {
                         if(empty) {
                             setText("");
                         } else {
-                            setText(option.nameMapper.apply(item));
+                            setText(option.displayName(item));
                         }
                     }
                 };

@@ -28,7 +28,6 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
     @FXML private Pane frameDrawerFactoryView;
     @FXML private FrameDrawerPresenterSelectionView frameDrawerFactoryViewController;
     @FXML private Pane drawerControlsView;
-    @FXML private DrawerControlsView drawerControlsViewController;
     @FXML private Pane styleControlsView;
     @FXML private StyleControlsView styleControlsViewController;
     @FXML private Pane frameTransitionerFactoryView;
@@ -63,9 +62,9 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
 
     @Override
     public DrawerControlsPresenter.View getDrawerControlsView() {
-        drawerControlsViewController.instantDrawerFactoryView = checkNotNull(instantDrawerFactoryViewController);
-        drawerControlsViewController.frameDrawerFactoryView = checkNotNull(frameDrawerFactoryViewController);
-        return checkNotNull(drawerControlsViewController);
+        canvasControlsViewController.instantDrawerFactoryView = checkNotNull(instantDrawerFactoryViewController);
+        canvasControlsViewController.frameDrawerFactoryView = checkNotNull(frameDrawerFactoryViewController);
+        return checkNotNull(canvasControlsViewController);
     }
 
     @Override

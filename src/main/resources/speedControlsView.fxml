@@ -16,34 +16,28 @@
         hgap="10"
         vgap="10">
 
-    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
-
-    <Text
-            text="Speed Controls"
-            GridPane.columnIndex="0"
-            GridPane.columnSpan="2"
-            GridPane.rowIndex="0" />
+    <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
 
     <Label
             fx:id="targetSpeedLabel"
             text="Target Speed"
             GridPane.columnIndex="0"
-            GridPane.rowIndex="2" />
-
+            GridPane.rowIndex="0"
+            GridPane.halignment="RIGHT" />
     <IntegerSpinner
             fx:id="targetSpeedSpinner"
             GridPane.columnIndex="1"
-            GridPane.rowIndex="2" />
+            GridPane.rowIndex="0" />
 
     <Label
             fx:id="instantCountLabel"
             text="Instant Count"
             GridPane.columnIndex="0"
-            GridPane.rowIndex="3" />
-
+            GridPane.rowIndex="1"
+            GridPane.halignment="RIGHT" />
     <IntegerSpinner
             fx:id="instantCountSpinner"
             GridPane.columnIndex="1"
-            GridPane.rowIndex="3" />
+            GridPane.rowIndex="1" />
 
 </GridPane>

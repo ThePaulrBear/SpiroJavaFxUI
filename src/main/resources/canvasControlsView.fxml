@@ -14,86 +14,106 @@
         xmlns="http://javafx.com/javafx/8.0.121"
         fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.CanvasControlsView">
 
-    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
-
-    <Text
-            text="Canvas Controls"
-            GridPane.columnIndex="0"
-            GridPane.columnSpan="2"
-            GridPane.rowIndex="0" />
+    <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
 
     <Label
-            text="Size:"
+            text="Width"
             GridPane.columnIndex="0"
-            GridPane.rowIndex="1" />
-
+            GridPane.rowIndex="1"
+            GridPane.halignment="RIGHT"/>
     <IntegerSpinner
-            fx:id="size"
+            fx:id="width"
             GridPane.columnIndex="1"
             GridPane.rowIndex="1" />
+    <Label
+        text="Height"
+        GridPane.columnIndex="0"
+        GridPane.rowIndex="2"
+        GridPane.halignment="RIGHT"/>
+    <IntegerSpinner
+            fx:id="height"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="2" />
 
     <Label
             text="Zoom"
             GridPane.columnIndex="0"
-            GridPane.rowIndex="2" />
-
+            GridPane.rowIndex="3"
+            GridPane.halignment="RIGHT" />
     <FloatSlider
             fx:id="zoom"
             GridPane.columnIndex="1"
-            GridPane.rowIndex="2" />
-
-    <Label
-            text="Center"
-            GridPane.columnIndex="0"
             GridPane.rowIndex="3" />
 
+    <Label
+            text="Center X"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="4"
+            GridPane.halignment="RIGHT" />
     <FloatSlider
             fx:id="centerX"
             GridPane.columnIndex="1"
-            GridPane.rowIndex="3" />
-
+            GridPane.rowIndex="4" />
+    <Label
+            text="Center Y"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="5"
+            GridPane.halignment="RIGHT" />
     <FloatSlider
             fx:id="centerY"
-            GridPane.columnIndex="2"
-            GridPane.rowIndex="3" />
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="5" />
 
     <Label
             text="Rotation"
-            GridPane.rowIndex="4" />
-
+            GridPane.rowIndex="6"
+            GridPane.columnIndex="0"
+            GridPane.halignment="RIGHT" />
     <StringField
             fx:id="rotation"
             GridPane.columnIndex="1"
-            GridPane.rowIndex="4"/>
+            GridPane.rowIndex="6"/>
 
     <Label
             text="Background Color"
-            GridPane.rowIndex="5" />
-
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="7"
+            GridPane.halignment="RIGHT" />
     <ColorSelector
             fx:id="background"
             GridPane.columnIndex="1"
             GridPane.columnSpan="2"
-            GridPane.rowIndex="5"/>
+            GridPane.rowIndex="7"/>
 
-    <EventButton
-            fx:id="clear"
-            text="Clear"
-            GridPane.columnIndex="1"
-            GridPane.rowIndex="6"/>
-
-    <EventButton
-            fx:id="reset"
-            text="Reset"
-            GridPane.columnIndex="2"
-            GridPane.rowIndex="6"/>
-
-    <Label text="Preserve Graph"
+<!--    We hid this option because it currently is not used.-->
+    <Label text="Preserve Graph" visible="false"
            GridPane.columnIndex="0"
-           GridPane.rowIndex="7"/>
-
-    <BooleanToggle fx:id="preserveGraph"
+           GridPane.rowIndex="7"
+           GridPane.halignment="RIGHT"/>
+    <BooleanToggle fx:id="preserveGraph" visible="false"
                    GridPane.columnIndex="1"
                    GridPane.rowIndex="7"/>
 
+    <Label
+            text="Clear every frame:"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="8"
+            GridPane.halignment="RIGHT"/>
+    <BooleanToggle
+            fx:id="clearEveryFrame"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="8" />
+
+    <HBox
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="9"
+            spacing="12">
+        <EventButton
+                fx:id="clear"
+                text="Clear"/>
+
+        <EventButton
+                fx:id="reset"
+                text="Reset"/>
+    </HBox>
 </GridPane>

@@ -60,8 +60,8 @@ public class StyleControlsView implements StyleControlsPresenter.View {
 
     @Override
     public void setSettingsInPNGOptionOption(JSONInPNGSaverOption jsonInPNGSaverOption) {
-        loadFromFile.setOption(jsonInPNGSaverOption.getLoadOption(), "Load");
-        saveToFile.setOption(jsonInPNGSaverOption.getSaveOption(), "Save");
+        loadFromFile.setOption(jsonInPNGSaverOption.getLoadOption());
+        saveToFile.setOption(jsonInPNGSaverOption.getSaveOption());
     }
 
 }

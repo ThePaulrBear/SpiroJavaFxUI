@@ -8,12 +8,12 @@
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.LinesControlsView"
-          minWidth="300" minHeight="300"
-          alignment="center"
+          minWidth="200" minHeight="50"
+          alignment="CENTER_LEFT"
           hgap="10" vgap="10">
 
     <padding>
-        <Insets bottom="25" left="25" right="25" top="25"/>
+        <Insets bottom="10" left="10" right="10" top="10"/>
     </padding>
 
     <Label text="Segments"
@@ -24,10 +24,10 @@
     <Label text="Direction" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
     <StringField fx:id="direction" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-    <Label text="Start displacement" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Label text="End Offset" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
     <StringField fx:id="lineStart" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-    <Label text="End displacement" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <Label text="Start Offset" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
     <StringField fx:id="lineEnd" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
 </GridPane>

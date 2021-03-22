@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.layout.*?>
-<?import paul.wintz.javafx.widgets.ListSelector?>
+<?import javafx.scene.layout.VBox?>
+<?import paul.wintz.javafx.widgets.DropdownSelector?>
 <?import paul.wintz.javafx.widgets.LoaderView?>
-<HBox
+<VBox
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
         fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.InstantDrawerPresenterSelectionView"
-        minWidth="300" minHeight="300"
-        alignment="center"
+        minWidth="100" minHeight="50"
+        alignment="CENTER_LEFT"
+        fillWidth="true"
 >
 
     <padding>
-        <Insets bottom="25" left="25" right="25" top="25"/>
+        <Insets bottom="10" left="10" right="10" top="10"/>
     </padding>
 
-    <ListSelector fx:id="listOfPresenters" />
+    <DropdownSelector fx:id="listOfPresenters"/>
 
     <LoaderView fx:id="loaderView" />
 
-</HBox>
+</VBox>
