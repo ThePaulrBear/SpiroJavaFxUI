@@ -52,8 +52,8 @@ public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.V
         try {
             Parent load = circleControlsLoader.load();
             circlesColumn.getChildren().add(load);
-            CircleControlsView controller = circleControlsLoader.<CircleControlsView>getController();
-            int index = circleViews.size() - 1;
+            CircleControlsView controller = circleControlsLoader.getController();
+            int index = circleViews.size();
             controller.setIndex(index);
             circleViews.add(controller);
         } catch (IOException e) {
