@@ -1,6 +1,7 @@
 package paul.wintz.parametricequationdrawer.controllers.javafx;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import paul.wintz.javafx.widgets.IntegerSpinner;
 import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.SpirotechnicControlsPresenter;
 import paul.wintz.uioptiontypes.values.IntegerOption;
@@ -11,6 +12,7 @@ public class CircleControlsView implements SpirotechnicControlsPresenter.CircleC
 
     @FXML IntegerSpinner radius;
     @FXML IntegerSpinner velocity;
+    @FXML Label velocityLabel;
 
     @Override
     public void setRadiusOption(IntegerOption radiusOption) {
@@ -22,5 +24,15 @@ public class CircleControlsView implements SpirotechnicControlsPresenter.CircleC
     public void setVelocityOption(IntegerOption velocityOption) {
 //        Lg.v(TAG, "setVelocityOption(%s)", velocityOption);
         velocity.setOption(velocityOption);
+    }
+
+    @Override
+    public void setIndex(int index) {
+        if(index == 0){
+            velocity.setVisible(false);
+            velocity.setManaged(false);
+            velocityLabel.setVisible(false);
+            velocityLabel.setManaged(false);
+        }
     }
 }

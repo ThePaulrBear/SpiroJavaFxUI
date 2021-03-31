@@ -20,7 +20,8 @@
            textAlignment="RIGHT"/>
     <IntegerSpinner fx:id="radius" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-    <Label text="Velocity"  minWidth="50"
+    <Label fx:id="velocityLabel"
+           text="Velocity"  minWidth="50"
            GridPane.rowIndex="1" GridPane.columnIndex="0"
            GridPane.halignment="RIGHT"
            textAlignment="RIGHT"/>
