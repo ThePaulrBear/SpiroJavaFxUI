@@ -4,20 +4,29 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import paul.wintz.javafx.widgets.IntegerSlider?>
+<?import paul.wintz.javafx.widgets.StringField?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.InitialContactOffsetControlsView"
           minWidth="100" minHeight="0"
           alignment="center"
-          hgap="10" vgap="10">
+          hgap="5" vgap="10">
 
     <padding>
-        <Insets bottom="25" left="25" right="25" top="25"/>
+        <Insets bottom="10" left="10" right="10" top="10"/>
     </padding>
 
     <Label text="Circle to shift"
-           GridPane.rowIndex="0" GridPane.columnIndex="0" />
+           GridPane.rowIndex="0" GridPane.columnIndex="0"
+           GridPane.halignment="RIGHT"/>
     <IntegerSlider fx:id="circle"
-           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <Label text="Offset"
+           GridPane.rowIndex="1" GridPane.columnIndex="0"
+           GridPane.halignment="RIGHT" />
+    <StringField fx:id="offsetEquation"
+                 GridPane.rowIndex="1" GridPane.columnIndex="1"
+                 GridPane.hgrow="always"/>
 
 </GridPane>

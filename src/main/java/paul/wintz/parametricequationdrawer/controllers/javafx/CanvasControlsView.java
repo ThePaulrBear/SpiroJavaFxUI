@@ -107,9 +107,9 @@ public class CanvasControlsView implements CanvasControlsPresenter.View, DrawerC
     }
 
     @Override
-    public void setRotation(String index) {
-        Lg.v(TAG, "setRotation(%d)", index);
-        rotation.setValue(index);
+    public void setRotation(String equation) {
+        Lg.v(TAG, "setRotation(%s)", equation);
+        rotation.setValue(equation);
     }
 
     @Override

@@ -26,8 +26,7 @@ public class CircleControlsView implements SpirotechnicControlsPresenter.CircleC
         velocity.setOption(velocityOption);
     }
 
-    @Override
-    public void setIndex(int index) {
+     void setIndex(int index) {
         if(index == 0){
             velocity.setVisible(false);
             velocity.setManaged(false);
