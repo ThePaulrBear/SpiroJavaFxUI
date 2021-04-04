@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import paul.wintz.javafx.widgets.IntegerSpinner?>
+<?import paul.wintz.javafx.widgets.StringField?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.CircleControlsView"
@@ -26,5 +27,11 @@
            GridPane.halignment="RIGHT"
            textAlignment="RIGHT"/>
     <IntegerSpinner fx:id="velocity" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Label fx:id="rotationOffsetLabel" text="Offset"  minWidth="50"
+           GridPane.rowIndex="2" GridPane.columnIndex="0"
+           GridPane.halignment="RIGHT"
+           textAlignment="RIGHT"/>
+    <StringField fx:id="rotationOffset" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
 </GridPane>

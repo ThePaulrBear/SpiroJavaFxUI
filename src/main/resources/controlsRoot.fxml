@@ -23,9 +23,6 @@
             <TitledPane text="Instant" expanded="true">
                 <fx:include fx:id="instantDrawerFactoryView" source="instantDrawerFactoryView.fxml" fillWidth="true" />
             </TitledPane>
-            <TitledPane text="Transitions" expanded="true">
-                <fx:include fx:id="frameTransitionerFactoryView" source="frameTransitionerFactoryView.fxml" fillWidth="true" />
-            </TitledPane>
         </VBox>
     </ScrollPane>
 

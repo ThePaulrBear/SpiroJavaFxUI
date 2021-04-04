@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 <?import paul.wintz.javafx.widgets.*?>
+<?import javafx.scene.layout.GridPane?>
 <VBox alignment="TOP_CENTER" focusTraversable="true"
       minWidth="120.0" spacing="10"
       xmlns="http://javafx.com/javafx/8.0.172-ea"
@@ -28,5 +29,28 @@
     </HBox>
 
     <VBox fx:id="circlesColumn" prefHeight="20" spacing="10" />
+
+
+    <GridPane prefHeight="10.0" prefWidth="80.0"
+              hgap="10" vgap="5">
+        <Label text="Tracer Offset"  minWidth="100"
+               GridPane.rowIndex="0" GridPane.columnIndex="0"
+               GridPane.columnSpan="2"
+               textAlignment="RIGHT"/>
+
+<!--        <Label text="X"  minWidth="10"-->
+<!--               GridPane.rowIndex="1" GridPane.columnIndex="0"-->
+<!--               GridPane.halignment="RIGHT"-->
+<!--               textAlignment="RIGHT"/>-->
+
+        <StringField fx:id="tracerRadialOffset" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+<!--        <Label text="Y"  minWidth="10"-->
+<!--               GridPane.rowIndex="2" GridPane.columnIndex="0"-->
+<!--               GridPane.halignment="RIGHT"-->
+<!--               textAlignment="RIGHT"/>-->
+
+<!--        <StringField fx:id="tracerOffsetY" maxWidth="100" GridPane.rowIndex="2" GridPane.columnIndex="1"/>-->
+    </GridPane>
 
 </VBox>

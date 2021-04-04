@@ -3,7 +3,6 @@ package paul.wintz.parametricequationdrawer.controllers.javafx;
 import javafx.fxml.FXML;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.Pane;
-import paul.wintz.mvp.PresenterFactoryPresenter;
 import paul.wintz.parametricequationdrawer.MainPresenter;
 import paul.wintz.parametricequationdrawer.controllers.*;
 import paul.wintz.sourcefactories.speedcontroller.SpeedControllerPresenter;
@@ -31,7 +30,6 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
     @FXML private Pane styleControlsView;
     @FXML private StyleControlsView styleControlsViewController;
     @FXML private Pane frameTransitionerFactoryView;
-    @FXML private PresenterFactoryPresenter.PresenterSelectionView frameTransitionerFactoryViewController;
     @FXML private Pane circleOverlayControlsView;
     @FXML private CircleOverlayControlsPresenter.View circleOverlayControlsViewController;
 
@@ -70,11 +68,6 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
     @Override
     public StyleControlsPresenter.View getStyleControlsView() {
         return checkNotNull(styleControlsViewController);
-    }
-
-    @Override
-    public PresenterFactoryPresenter.PresenterSelectionView getFrameTransitionerView() {
-        return frameTransitionerFactoryViewController;
     }
 
     @Override

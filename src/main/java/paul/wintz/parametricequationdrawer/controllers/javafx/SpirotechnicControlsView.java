@@ -8,9 +8,12 @@ import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 import paul.wintz.javafx.widgets.EventButton;
 import paul.wintz.javafx.widgets.IntegerSpinner;
+import paul.wintz.javafx.widgets.StringField;
+import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.CircleControlsPresenter;
 import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.SpirotechnicControlsPresenter;
 import paul.wintz.uioptiontypes.events.EventOption;
 import paul.wintz.uioptiontypes.values.IntegerOption;
+import paul.wintz.uioptiontypes.values.StringOption;
 import paul.wintz.utils.logging.Lg;
 
 import javax.annotation.Nonnull;
@@ -26,8 +29,10 @@ public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.V
     @FXML private EventButton previousGraph;
     @FXML private EventButton nextGraph;
     @FXML private VBox circlesColumn;
+    @FXML private StringField tracerRadialOffset;
+    @FXML public StringField tracerOffsetY;
 
-    private List<SpirotechnicControlsPresenter.CircleControlsPresenter.View> circleViews = new ArrayList<>();
+    private List<CircleControlsPresenter.View> circleViews = new ArrayList<>();
 
     @Override
     public void setCircleCountOption(IntegerOption circleCountOption) {
@@ -36,7 +41,7 @@ public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.V
 
     @Nonnull
     @Override
-    public List<SpirotechnicControlsPresenter.CircleControlsPresenter.View> setCircleCount(int count) {
+    public List<CircleControlsPresenter.View> setCircleCount(int count) {
         while(circleViews.size() > count){
             removeCircle();
         }
@@ -83,6 +88,17 @@ public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.V
     @Override
     public void setLoadPreviousGraphOption(EventOption previousGraphOption) {
         previousGraph.setOption(previousGraphOption);
+    }
+
+    @Override
+    public void setTracerRadialOffsetEquation(StringOption tracerRadialOffsetOption) {
+        tracerRadialOffset.setOption(tracerRadialOffsetOption);
+    }
+
+    @Override
+    public void setTracerTangentOffsetEquation(StringOption tracerTangentOffsetOption) {
+//        Not yet implemented
+//        tracerTangentOffset.setOption(tracerTangentOffsetOption);
     }
 
 }
