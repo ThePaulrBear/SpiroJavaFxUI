@@ -20,23 +20,20 @@ public abstract class FXPresenterSelectionView implements PresenterFactoryPresen
 
     protected abstract LoaderView getLoaderView();
 
-    @Nonnull protected final <V> V getView(String location) {
+    @Nonnull
+    final <V> V getView(String location) {
         Lg.v(TAG, "getView(%s)", location);
         return checkNotNull(getLoaderView().load(location));
     }
 
-    protected void clearView() {
+    void clearView() {
         getLoaderView().getChildren().clear();
     }
 
     @Override
     public final void setPresentersOption(ListOption<Class<? extends Presenter<?>>> presenterChoices) {
         Lg.v(TAG, "setPresentersOption(%s)", presenterChoices);
-
         listOfPresenters.setOption(presenterChoices);
-        for(Class<? extends Presenter<?>> choice : presenterChoices.getList()) {
-            listOfPresenters.getItems().add(choice);
-        }
     }
 
 }

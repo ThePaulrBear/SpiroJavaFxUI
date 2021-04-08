@@ -36,8 +36,12 @@ public class DropdownSelector<T> extends ComboBox<T> {
         // Configure the display of the button that is clicked to open the drop down.
         setButtonCell(createCell());
 
-        // This does not appear to apply the initial value. :(
-        setValue(listOption.getValue());
+        for(T choice : listOption.getList()) {
+            this.getItems().add(choice);
+        }
+
+        getSelectionModel().select(listOption.getValue());
+        listOption.emitViewValueChanged(getValue());
     }
 
     private ListCell<T> createCell() {
