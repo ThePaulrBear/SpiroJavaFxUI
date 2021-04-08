@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import paul.wintz.javafx.widgets.IntegerSpinner?>
+<?import paul.wintz.javafx.widgets.StringField?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="paul.wintz.parametricequationdrawer.controllers.javafx.StandardDrawerControlsView"
@@ -15,10 +16,32 @@
         <Insets bottom="10" left="10" right="10" top="10"/>
     </padding>
 
-    <Label text="Instants per Frame"
+    <Label text="Count"
            GridPane.rowIndex="0" GridPane.columnIndex="0"
            GridPane.halignment="RIGHT" />
     <IntegerSpinner fx:id="instantsPerFrame"
-           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <Label text="Grid Start"
+           GridPane.rowIndex="1" GridPane.columnIndex="0"
+           GridPane.halignment="RIGHT" />
+    <StringField fx:id="gridStart"
+                 GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <Label text="Grid End"
+           GridPane.rowIndex="2" GridPane.columnIndex="0"
+           GridPane.halignment="RIGHT" />
+    <StringField fx:id="gridEnd"
+                 GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <Label text="Visible Start"
+           GridPane.rowIndex="3" GridPane.columnIndex="0"
+           GridPane.halignment="RIGHT" />
+    <StringField fx:id="visibleStart"
+                 GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    <Label text="Visible End"
+           GridPane.rowIndex="4" GridPane.columnIndex="0"
+           GridPane.halignment="RIGHT" />
+    <StringField fx:id="visibleEnd"
+                 GridPane.rowIndex="4" GridPane.columnIndex="1"/>
 
 </GridPane>

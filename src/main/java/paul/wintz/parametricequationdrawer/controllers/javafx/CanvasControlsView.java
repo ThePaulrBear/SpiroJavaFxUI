@@ -166,7 +166,10 @@ public class CanvasControlsView implements CanvasControlsPresenter.View, DrawerC
         @Override
         public TypeFactory getViewFactory() {
             return TypeFactory.builder()
-                    .putType(SpirotechnicGraphablePresenter.View.class, () -> {throw new RuntimeException();})
+                    .putType(SpirotechnicGraphablePresenter.View.class, () -> {
+//                        throw new RuntimeException();
+                        return null;
+                    })
                     .putType(EllipsesSpirotechnicGraphable.View.class, () -> {throw new RuntimeException();})
                     .build();
         }

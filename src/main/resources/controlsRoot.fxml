@@ -31,9 +31,6 @@
             <TitledPane text="Canvas">
                 <fx:include fx:id="canvasControlsView" source="canvasControlsView.fxml" alignment="CENTER_LEFT"/>
             </TitledPane>
-            <TitledPane text="Speed">
-                <fx:include fx:id="speedControlsView" source="speedControlsView.fxml" alignment="CENTER_LEFT"/>
-            </TitledPane>
             <TitledPane text="Frame" expanded="true">
                 <fx:include fx:id="frameDrawerFactoryView" source="frameDrawerFactoryView.fxml" alignment="CENTER_LEFT"/>
             </TitledPane>

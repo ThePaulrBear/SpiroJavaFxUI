@@ -5,7 +5,6 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.Pane;
 import paul.wintz.parametricequationdrawer.MainPresenter;
 import paul.wintz.parametricequationdrawer.controllers.*;
-import paul.wintz.sourcefactories.speedcontroller.SpeedControllerPresenter;
 import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.SpirotechnicControlsPresenter;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -20,8 +19,6 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
     @FXML private AnimationControlsView animationControlsViewController;
     @FXML private Pane spirotechnicControlsView;
     @FXML private SpirotechnicControlsView spirotechnicControlsViewController;
-    @FXML private Pane speedControlsView;
-    @FXML private SpeedControlsController speedControlsViewController;
     @FXML private Pane instantDrawerFactoryView;
     @FXML private InstantDrawerPresenterSelectionView instantDrawerFactoryViewController;
     @FXML private Pane frameDrawerFactoryView;
@@ -51,11 +48,6 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
     @Override
     public SpirotechnicControlsPresenter.View getSpirotechnicControlsView() {
         return checkNotNull(spirotechnicControlsViewController);
-    }
-
-    @Override
-    public SpeedControllerPresenter.View getSpeedPresenterView() {
-        return checkNotNull(speedControlsViewController);
     }
 
     @Override
