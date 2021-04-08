@@ -26,7 +26,6 @@ public class ControlsRoot extends TabPane implements MainPresenter.View {
     @FXML private Pane drawerControlsView;
     @FXML private Pane styleControlsView;
     @FXML private StyleControlsView styleControlsViewController;
-    @FXML private Pane frameTransitionerFactoryView;
     @FXML private Pane circleOverlayControlsView;
     @FXML private CircleOverlayControlsPresenter.View circleOverlayControlsViewController;
 
