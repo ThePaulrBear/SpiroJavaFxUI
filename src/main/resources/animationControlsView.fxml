@@ -20,19 +20,24 @@
            GridPane.halignment="RIGHT"/>
     <BooleanToggle fx:id="recording" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
 
-    <Label text="Frame Count"
+    <Label text="Format"
            GridPane.columnIndex="0" GridPane.rowIndex="1"
            GridPane.halignment="RIGHT"/>
-    <IntegerSpinner fx:id="frameCount" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <DropdownSelector fx:id="format" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-    <Label text="FPS"
+    <Label text="Length"
            GridPane.columnIndex="0" GridPane.rowIndex="2"
            GridPane.halignment="RIGHT"/>
-    <FloatSlider fx:id="fps" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <IntegerSpinner fx:id="frameCount" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <Label text="FPS"
+           GridPane.columnIndex="0" GridPane.rowIndex="3"
+           GridPane.halignment="RIGHT"/>
+    <FloatSlider fx:id="fps" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
     <DirectorySelector fx:id="saveDirectorySelector" text="Pick Directory"
-                       GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                       GridPane.columnIndex="0" GridPane.rowIndex="4"/>
 
-    <EventButton fx:id="save" text="Save Snapshot" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <EventButton fx:id="save" text="Save Snapshot" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
 </GridPane>

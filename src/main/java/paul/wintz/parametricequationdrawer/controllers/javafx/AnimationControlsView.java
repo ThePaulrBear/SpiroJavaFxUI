@@ -5,10 +5,7 @@ import paul.wintz.javafx.widgets.*;
 import paul.wintz.parametricequationdrawer.controllers.AnimationControlsPresenter;
 import paul.wintz.parametricequationdrawer.controllers.SaveLocationPresenter;
 import paul.wintz.uioptiontypes.events.EventOption;
-import paul.wintz.uioptiontypes.values.BooleanOption;
-import paul.wintz.uioptiontypes.values.DirectoryOption;
-import paul.wintz.uioptiontypes.values.FloatOption;
-import paul.wintz.uioptiontypes.values.IntegerOption;
+import paul.wintz.uioptiontypes.values.*;
 
 public class AnimationControlsView implements
         AnimationControlsPresenter.View,
@@ -16,6 +13,7 @@ public class AnimationControlsView implements
         SaveLocationPresenter.View {
 
     @FXML private BooleanToggle recording;
+    @FXML private DropdownSelector<String> format;
     @FXML private IntegerSpinner frameCount;
     @FXML private FloatSlider fps;
 
@@ -24,6 +22,11 @@ public class AnimationControlsView implements
 
     @Override public void setRecordingOption(BooleanOption recordingOption) {
         recording.setOption(recordingOption);
+    }
+
+    @Override
+    public void setFormatOption(ListOption<String> recordingOption) {
+        format.setOption(recordingOption);
     }
 
     @Override public void setFrameCountOption(IntegerOption frameCountOption) {
