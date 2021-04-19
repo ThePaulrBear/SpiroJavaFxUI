@@ -1,5 +1,6 @@
 package paul.wintz.parametricequationdrawer.controllers.javafx;
 
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +17,6 @@ import paul.wintz.uioptiontypes.values.IntegerOption;
 import paul.wintz.uioptiontypes.values.StringOption;
 import paul.wintz.utils.logging.Lg;
 
-import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,26 +32,37 @@ public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.V
     @FXML private StringField tracerRadialOffset;
     @FXML public StringField tracerOffsetY;
 
-    private List<CircleControlsPresenter.View> circleViews = new ArrayList<>();
+    private final List<CircleControlsPresenter.View> circleViews = new ArrayList<>();
 
     @Override
     public void setCircleCountOption(IntegerOption circleCountOption) {
         circleCount.setOption(circleCountOption);
     }
 
-    @Nonnull
     @Override
-    public List<CircleControlsPresenter.View> setCircleCount(int count) {
-        while(circleViews.size() > count){
-            removeCircle();
-        }
-        while(circleViews.size() < count){
-            addCircle();
-        }
-        return circleViews;
+    public void setCircleCount(int count,
+                               SpirotechnicControlsPresenter.AddCircleViewCallback addCircleViewConsumer,
+                               SpirotechnicControlsPresenter.RemoveCircleViewCallback removeCircleViewListener) {
+        runOnFxApplicationThread(() -> {
+            while (circleViews.size() > count) {
+                removeCircle();
+                removeCircleViewListener.onRemoveCircleView(circleViews.size());
+            }
+            while (circleViews.size() < count) {
+                addCircleViewConsumer.onAddCircleView(circleViews.size(), addCircle());
+            }
+        });
     }
 
-    private void addCircle() {
+    private static void runOnFxApplicationThread(Runnable runnable) {
+        if (Platform.isFxApplicationThread()) {
+            runnable.run();
+        } else {
+            Platform.runLater(runnable);
+        }
+    }
+
+    private CircleControlsView addCircle() {
         FXMLLoader circleControlsLoader = new FXMLLoader();
         circleControlsLoader.setLocation(getClass().getResource("/circleControlsView.fxml"));
         try {
@@ -61,6 +72,7 @@ public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.V
             int index = circleViews.size();
             controller.setIndex(index);
             circleViews.add(controller);
+            return controller;
         } catch (IOException e) {
             Lg.e(TAG, "Failed to load circleControls", e);
             throw new RuntimeException(e);

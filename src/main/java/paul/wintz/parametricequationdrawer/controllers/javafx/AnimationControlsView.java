@@ -25,8 +25,8 @@ public class AnimationControlsView implements
     }
 
     @Override
-    public void setFormatOption(ListOption<String> recordingOption) {
-        format.setOption(recordingOption);
+    public void setFormatOption(ListOption<String> formatOption) {
+        format.setOption(formatOption);
     }
 
     @Override public void setFrameCountOption(IntegerOption frameCountOption) {

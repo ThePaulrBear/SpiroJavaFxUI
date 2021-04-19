@@ -133,8 +133,8 @@ public class CanvasControlsView implements CanvasControlsPresenter.View, DrawerC
     }
 
     @Override
-    public void setClearEveryFrameOption(BooleanOption clearEveryFrame) {
-        this.clearEveryFrame.setOption(clearEveryFrame);
+    public void setClearEveryFrameOption(BooleanOption clearEveryFrameOption) {
+        clearEveryFrame.setOption(clearEveryFrameOption);
     }
 
     @Override
