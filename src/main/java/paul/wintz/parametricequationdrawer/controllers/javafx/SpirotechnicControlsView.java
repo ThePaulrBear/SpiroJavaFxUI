@@ -10,18 +10,17 @@ import javafx.scene.layout.VBox;
 import paul.wintz.javafx.widgets.EventButton;
 import paul.wintz.javafx.widgets.IntegerSpinner;
 import paul.wintz.javafx.widgets.StringField;
-import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.CircleControlsPresenter;
+import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.AbstractSpirotechnicControlsView;
 import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.SpirotechnicControlsPresenter;
 import paul.wintz.uioptiontypes.events.EventOption;
 import paul.wintz.uioptiontypes.values.IntegerOption;
 import paul.wintz.uioptiontypes.values.StringOption;
 import paul.wintz.utils.logging.Lg;
 
+import javax.annotation.Nonnull;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.View {
+public class SpirotechnicControlsView extends AbstractSpirotechnicControlsView<CircleControlsView> implements SpirotechnicControlsPresenter.View {
     private static final String TAG = Lg.makeTAG(SpirotechnicControlsView.class);
 
     @FXML private IntegerSpinner circleCount;
@@ -32,46 +31,30 @@ public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.V
     @FXML private StringField tracerRadialOffset;
     @FXML public StringField tracerOffsetY;
 
-    private final List<CircleControlsPresenter.View> circleViews = new ArrayList<>();
-
     @Override
     public void setCircleCountOption(IntegerOption circleCountOption) {
         circleCount.setOption(circleCountOption);
     }
 
     @Override
-    public void setCircleCount(int count,
-                               SpirotechnicControlsPresenter.AddCircleViewCallback addCircleViewConsumer,
-                               SpirotechnicControlsPresenter.RemoveCircleViewCallback removeCircleViewListener) {
-        runOnFxApplicationThread(() -> {
-            while (circleViews.size() > count) {
-                removeCircle();
-                removeCircleViewListener.onRemoveCircleView(circleViews.size());
-            }
-            while (circleViews.size() < count) {
-                addCircleViewConsumer.onAddCircleView(circleViews.size(), addCircle());
-            }
-        });
-    }
-
-    private static void runOnFxApplicationThread(Runnable runnable) {
+    protected void runSetCircleCountRunnable(Runnable setCircleCountRunnable) {
         if (Platform.isFxApplicationThread()) {
-            runnable.run();
+            setCircleCountRunnable.run();
         } else {
-            Platform.runLater(runnable);
+            Platform.runLater(setCircleCountRunnable);
         }
     }
 
-    private CircleControlsView addCircle() {
+    @Override
+    @Nonnull
+    protected CircleControlsView loadCircleControlsView() {
         FXMLLoader circleControlsLoader = new FXMLLoader();
         circleControlsLoader.setLocation(getClass().getResource("/circleControlsView.fxml"));
         try {
             Parent load = circleControlsLoader.load();
             circlesColumn.getChildren().add(load);
             CircleControlsView controller = circleControlsLoader.getController();
-            int index = circleViews.size();
-            controller.setIndex(index);
-            circleViews.add(controller);
+            controller.setIndex(getCircleViewsCount());
             return controller;
         } catch (IOException e) {
             Lg.e(TAG, "Failed to load circleControls", e);
@@ -79,12 +62,11 @@ public class SpirotechnicControlsView implements SpirotechnicControlsPresenter.V
         }
     }
 
-    private void removeCircle() {
+    @Override
+    protected void removeLastCircleControlsView() {
         Lg.v(TAG, "Removing a circle. ");
         ObservableList<Node> children = circlesColumn.getChildren();
-        int last = children.size() - 1;
-        children.remove(last);
-        circleViews.remove(last);
+        children.remove(getCircleViewsCount() - 1);
     }
 
     @Override
