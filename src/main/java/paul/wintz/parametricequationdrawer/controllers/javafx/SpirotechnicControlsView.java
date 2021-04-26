@@ -1,6 +1,5 @@
 package paul.wintz.parametricequationdrawer.controllers.javafx;
 
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +9,7 @@ import javafx.scene.layout.VBox;
 import paul.wintz.javafx.widgets.EventButton;
 import paul.wintz.javafx.widgets.IntegerSpinner;
 import paul.wintz.javafx.widgets.StringField;
+import paul.wintz.nodes.FXUtils;
 import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.AbstractSpirotechnicControlsView;
 import paul.wintz.spirotechnics.cirlcesspirotechnic.parameters.SpirotechnicControlsPresenter;
 import paul.wintz.uioptiontypes.events.EventOption;
@@ -38,11 +38,7 @@ public class SpirotechnicControlsView extends AbstractSpirotechnicControlsView<C
 
     @Override
     protected void runSetCircleCountRunnable(Runnable setCircleCountRunnable) {
-        if (Platform.isFxApplicationThread()) {
-            setCircleCountRunnable.run();
-        } else {
-            Platform.runLater(setCircleCountRunnable);
-        }
+        FXUtils.runOnApplicationThread(setCircleCountRunnable);
     }
 
     @Override

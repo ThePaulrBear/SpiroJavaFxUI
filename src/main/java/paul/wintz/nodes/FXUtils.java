@@ -1,5 +1,6 @@
 package paul.wintz.nodes;
 
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Cursor;
@@ -8,7 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import paul.wintz.utils.logging.Lg;
 
-class FXUtils {
+public class FXUtils {
     private static final String TAG = Lg.makeTAG(FXUtils.class);
 
     static void setUpDragging(Node handle, DraggableWrapper toMove){
@@ -46,6 +47,14 @@ class FXUtils {
             Lg.v(TAG, "MouseReleased for " + handle);
             event.consume();
         });
+    }
+
+    public static void runOnApplicationThread(Runnable runnable) {
+        if (Platform.isFxApplicationThread()) {
+            runnable.run();
+        } else {
+            Platform.runLater(runnable);
+        }
     }
 
     public interface DraggableWrapper {

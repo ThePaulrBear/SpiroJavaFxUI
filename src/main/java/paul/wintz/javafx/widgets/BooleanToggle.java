@@ -1,6 +1,7 @@
 package paul.wintz.javafx.widgets;
 
 import org.controlsfx.control.ToggleSwitch;
+import paul.wintz.nodes.FXUtils;
 import paul.wintz.uioptiontypes.values.BooleanOption;
 
 public class BooleanToggle extends ToggleSwitch {
@@ -19,7 +20,9 @@ public class BooleanToggle extends ToggleSwitch {
     }
 
     public void setValue(boolean value) {
-        setSelected(value);
+        FXUtils.runOnApplicationThread(() -> {
+            setSelected(value);
+        });
     }
 
     public boolean getValue() {

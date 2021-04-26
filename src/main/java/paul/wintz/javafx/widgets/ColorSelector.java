@@ -2,6 +2,7 @@ package paul.wintz.javafx.widgets;
 
 import javafx.scene.control.ColorPicker;
 import javafx.scene.paint.Color;
+import paul.wintz.nodes.FXUtils;
 import paul.wintz.uioptiontypes.values.ColorOption;
 import paul.wintz.utils.color.ColorUtils;
 
@@ -29,10 +30,14 @@ public class ColorSelector extends ColorPicker {
     }
 
     public void setValue(int rgba) {
-        setValue(intToColor(rgba));
+        FXUtils.runOnApplicationThread(() -> {
+            setValue(intToColor(rgba));
+        });
     }
 
     public void setValue(int red, int green, int blue, int alpha) {
-        setValue(Color.rgb(red, green, blue, alpha));
+        FXUtils.runOnApplicationThread(() -> {
+            setValue(Color.rgb(red, green, blue, alpha));
+        });
     }
 }

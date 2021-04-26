@@ -3,6 +3,7 @@ package paul.wintz.javafx.widgets;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.input.KeyCode;
+import paul.wintz.nodes.FXUtils;
 import paul.wintz.uioptiontypes.values.IntegerOption;
 
 public class IntegerSpinner extends Spinner<Integer> {
@@ -32,7 +33,9 @@ public class IntegerSpinner extends Spinner<Integer> {
     }
 
     public void setValue(int value) {
-        valueFactory.setValue(value);
+        FXUtils.runOnApplicationThread(() -> {
+            valueFactory.setValue(value);
+        });
     }
 
 }

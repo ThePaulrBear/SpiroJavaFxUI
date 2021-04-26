@@ -2,6 +2,7 @@ package paul.wintz.javafx.widgets;
 
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
+import paul.wintz.nodes.FXUtils;
 import paul.wintz.uioptiontypes.values.StringOption;
 
 public class StringField extends TextField {
@@ -25,7 +26,9 @@ public class StringField extends TextField {
     }
 
     public void setValue(String value) {
-        setText(value);
+        FXUtils.runOnApplicationThread(() -> {
+            setText(value);
+        });
     }
 
 }
